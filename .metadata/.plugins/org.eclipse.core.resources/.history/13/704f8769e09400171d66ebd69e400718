@@ -1,0 +1,9 @@
+package scheduler;
+
+public class Main {
+	public static void main(String[] args) {
+		String[] arr = {"G"};
+		
+		System.out.println(arr);
+	}
+}
