@@ -18,6 +18,7 @@ public class Main {
 		printList(j.getMember());
 	}
 	public static void printList(List<String> list) {
+		ui.start();
 		for (String item : list) {
 			System.out.println(item);
 		}
