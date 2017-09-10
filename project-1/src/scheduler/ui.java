@@ -1,6 +1,8 @@
 package scheduler;
 import java.util.Scanner;
 
+import javax.print.DocFlavor.STRING;
+
 public class ui {
 
 /*
@@ -19,7 +21,7 @@ public class ui {
 	System.out.println("your name is "+me.uname);
 	System.out.println("Would you rather have a time be displayed in a 24hr format or a 12hr format");
 	System.out.println("type \"12\" for 12hr format and \"24\" for 24hr format ");
-	Boolean badinput=true;
+	boolean badinput=true;
 	String input;
 	String twelve= new String("12");
 	String twenty4= new String("24");
@@ -43,6 +45,8 @@ public class ui {
 	clean();
 	myscan.close();
 }
+	
+	
 	/*
 	 * input: none
 	 * output: none
@@ -53,5 +57,21 @@ public class ui {
 		for(int i=0;i!=101;i++) {
 			System.out.println();
 		}
-	}	
+	}
+	
+	/*
+	 * input: a list of good inputs as strings and a string of the users input
+	 * output: a bool of if the users input matched any of the acceptable answers
+	 * modifies: none
+	 * not tested.
+	 */
+	public static boolean inputcheck(String[] goodinputs,STRING input) {
+		boolean recievedGin=false;
+		for(int i =0;!recievedGin&&i<goodinputs.length;i++) {
+			if(input.equals(goodinputs[i])) {
+				recievedGin=true;
+			}
+		}
+		return recievedGin;
+	}
 }
