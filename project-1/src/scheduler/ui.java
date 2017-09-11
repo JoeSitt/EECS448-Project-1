@@ -1,6 +1,7 @@
 package scheduler;
 import java.util.Scanner;
 
+
 import javax.print.DocFlavor.STRING;
 
 public class ui {
@@ -21,7 +22,9 @@ public class ui {
 	System.out.println("your name is "+me.uname);
 	System.out.println("Would you rather have a time be displayed in a 24hr format or a 12hr format");
 	System.out.println("type \"12\" for 12hr format and \"24\" for 24hr format ");
+
 	boolean badinput=true;
+
 	String input;
 	String twelve= new String("12");
 	String twenty4= new String("24");
@@ -45,8 +48,7 @@ public class ui {
 	clean();
 	myscan.close();
 }
-	
-	
+
 	/*
 	 * input: none
 	 * output: none
@@ -57,6 +59,7 @@ public class ui {
 		for(int i=0;i!=101;i++) {
 			System.out.println();
 		}
+
 	}
 	
 	/*
@@ -74,4 +77,6 @@ public class ui {
 		}
 		return recievedGin;
 	}
+	
+
 }
