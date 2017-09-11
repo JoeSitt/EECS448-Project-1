@@ -31,8 +31,6 @@ public class Manager {
 		TreeSet<Event> mySet = new TreeSet<Event>();
 		Event myEvent = new Event("", "", "");
 		mySet.add(myEvent);
-		
-		System.out.println(mySet.isEmpty());
 	}
 
 }

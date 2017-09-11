@@ -1,7 +1,6 @@
 package scheduler;
 
 import java.util.List;
-import java.util.TreeSet;
 
 /**
  * Keeps track of Events, allowing them to be added and summarized upon request.
@@ -28,11 +27,7 @@ public class Manager {
 	}
 	
 	public static void main(String[] args) {
-		TreeSet<Event> mySet = new TreeSet<Event>();
-		Event myEvent = new Event("", "", "");
-		mySet.add(myEvent);
-		
-		System.out.println(mySet.isEmpty());
+		TreeSet<String> mySet;
 	}
 
 }

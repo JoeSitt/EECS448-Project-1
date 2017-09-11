@@ -41,9 +41,8 @@ public class Event {
 		DateFormat dateFormatter = new SimpleDateFormat("MM/dd/yyyy");
 		
 		Date myDate = dateFormatter.parse("01/03/1996");
-		Date myTime = timeFormatter.parse("8:30 PM");
+		Time myTime = timeFormatter.parse("8:30 PM");
 		
 		System.out.println(myDate.toString());
-		System.out.println(myTime.toString());
 	}
 }

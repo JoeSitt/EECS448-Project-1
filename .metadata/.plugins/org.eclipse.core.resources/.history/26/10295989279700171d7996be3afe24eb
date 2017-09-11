@@ -28,11 +28,9 @@ public class Manager {
 	}
 	
 	public static void main(String[] args) {
-		TreeSet<Event> mySet = new TreeSet<Event>();
+		TreeSet<Event> mySet;
 		Event myEvent = new Event("", "", "");
 		mySet.add(myEvent);
-		
-		System.out.println(mySet.isEmpty());
 	}
 
 }
