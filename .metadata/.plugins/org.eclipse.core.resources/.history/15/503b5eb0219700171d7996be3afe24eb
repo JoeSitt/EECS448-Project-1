@@ -1,0 +1,14 @@
+package scheduler;
+
+public class Event {
+	
+	public String time;
+	public String date;
+	public String name;
+	
+	public Event(String time, String date, String eventName) {
+		this.time = time;
+		
+	}
+
+}
