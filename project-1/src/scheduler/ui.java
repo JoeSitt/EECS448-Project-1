@@ -1,5 +1,7 @@
 package scheduler;
 import java.util.Scanner;
+import java.util.Arrays;
+import java.util.List;
 
 
 import javax.print.DocFlavor.STRING;
@@ -29,7 +31,8 @@ public class ui {
 	String twelve= new String("12");
 	String twenty4= new String("24");
 	input=myscan.nextLine();
-	while(badinput == true) {
+	String[] goodAnswer= {"12","24"};
+	/*while(badinput == true) {
 		input=myscan.nextLine();
 		System.out.println("input recieved.");
 		
@@ -44,7 +47,24 @@ public class ui {
 			me.timeview=24;
 			badinput=false;
 		}
-	}	
+	}
+	*/	
+	while(!inputcheck(goodAnswer,input)) {
+		input=myscan.nextLine();
+		System.out.println("input recieved.");
+		
+		if(!(inputcheck(goodAnswer,input))) {
+			System.out.println("Your input was not valid. please try again.");
+			System.out.println("Would you rather have a time be displayed in a 24hr format or a 12hr format");
+			System.out.println("type \"12\" for 12hr format and \"24\" for 24hr format ");
+		}else if(input.equals(twelve)){
+			me.timeview=12;
+			badinput=false;
+		}else {
+			me.timeview=24;
+			badinput=false;
+		}
+	}
 	clean();
 	myscan.close();
 }
@@ -68,7 +88,7 @@ public class ui {
 	 * modifies: none
 	 * not tested.
 	 */
-	public static boolean inputcheck(String[] goodinputs,STRING input) {
+	public static boolean inputcheck(String[] goodinputs,String input) {
 		boolean recievedGin=false;
 		for(int i =0;!recievedGin&&i<goodinputs.length;i++) {
 			if(input.equals(goodinputs[i])) {
