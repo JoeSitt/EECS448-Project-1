@@ -88,6 +88,7 @@ public class SampleClass implements Serializable {
 		// instance read from file and contents verified
 		SampleClass j = SampleClass.read("SampleClass-test.txt");
 		printList(j.getMember());
+		Main.main(args);
 	}
 	
 	public static void printList(List<String> list) {

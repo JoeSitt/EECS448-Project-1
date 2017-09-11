@@ -16,7 +16,7 @@ public class ui {
  */
 	public static void start(){
 	System.out.println("Welcome to the \"Best program(its a working title)\"");
-	System.out.println("please input your name");//Supports any name they want
+	System.out.println("please input your name");//Supports any name they want even no name
 	Scanner myscan= new Scanner(System.in);
 	//String username="";//should replace with actual user name from somewhere else...;//just did.-JS
 	user me=new user();
@@ -30,20 +30,20 @@ public class ui {
 	//String twenty4= new String("24");
 	input=myscan.nextLine();
 	String[] goodAnswer= {"12","24"};
-	while(!inputcheck(goodAnswer,input)&&me.timeview!=0) {
-		input=myscan.nextLine();
-		System.out.println("input recieved.");
-		
+	while(!inputcheck(goodAnswer,input)) {
 		if(!(inputcheck(goodAnswer,input))) {
 			System.out.println("Your input was not valid. please try again.");
 			System.out.println("Would you rather have a time be displayed in a 24hr format or a 12hr format");
 			System.out.println("type \"12\" for 12hr format and \"24\" for 24hr format ");
-		}else if(input.equals(twelve)){
-			me.timeview=12;
-			//badinput=false;
+			input=myscan.nextLine();
+			System.out.println("input recieved.");
+		}
+			else if(input.equals(twelve)){
+				me.timeview=12;
+//			//badinput=false;
 		}else {
 			me.timeview=24;
-			//badinput=false;
+//			//badinput=false;
 		}
 	}
 	if(input.equals(twelve)){
@@ -53,6 +53,7 @@ public class ui {
 		me.timeview=24;
 		//badinput=false;
 	}
+
 	clean();
 	System.out.println(me.timeview);
 	user(me);
