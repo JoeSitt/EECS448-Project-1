@@ -1,0 +1,12 @@
+package scheduler;
+
+public class Time {
+	
+	public static boolean parseTime(String timeString) {
+		
+		
+		
+		return false;  // TEMP
+	}
+
+}

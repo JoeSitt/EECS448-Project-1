@@ -1,0 +1,25 @@
+package scheduler;
+
+import java.time.LocalTime;
+
+public class Time {
+	
+	public static LocalTime parseTime(String timeString) {
+		
+		LocalTime time;
+		
+		// verify that time string is correctly formatted
+		try {
+			time = LocalTime.parse(timeString);
+		}
+	}
+	
+	public static void main(String[] args) {
+		try {
+			LocalTime time = LocalTime.parse("8:15:30");
+		} catch (Exception e) {
+			System.out.println("Nope");
+		}
+	}
+
+}

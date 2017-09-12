@@ -1,0 +1,20 @@
+package scheduler;
+
+import java.time.LocalTime;
+
+public class Time {
+	
+	public static boolean parseTime(String timeString) {
+		
+		
+//		return LocalTime.parse(timeString);
+		
+		
+		return false;  // TEMP
+	}
+	
+	public static void main(String[] args) {
+		LocalTime time = LocalTime.parse("8:30:00");
+	}
+
+}
