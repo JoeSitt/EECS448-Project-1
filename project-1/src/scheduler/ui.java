@@ -200,5 +200,59 @@ public class ui {
 		return me;
 		//myscan.close();
 	}
+	
+	/*
+	 * input: me, myscan
+	 * output: none or new event
+	 * modifies:event string or none,terminal
+	 * lets the user create events not finished
+	 */
+	public static void admin(user me,Scanner myscan) {
+		String menuoptions="============================================================================================\r\n" + 
+				"Input a code of what you want to do or follow the prompt to make an event\r\n" + 
+				"Return to where you were and cancel this event (code: “esc”)\r\n" + 
+				"============================================================================================\r\n" + 
+				"";
+		System.out.println(menuoptions);
+		String[] gHRinputs= {"Esc","esc","ESC"};
+		String[] g12inputs= {"Esc","esc","ESC","AM","am","Am","A.M.","a.m.","A.m.","PM","pm","Pm","P.M.","p.m.","P.m."};
+		String[] gmininputs= {"Esc","esc","ESC","","0","00","30"};
+		if (me.timeview==12) {
+
+			for(int i=0;i<12;i++) {
+				int x=i+1;
+					gHRinputs[i+3]=""+x;
+			}
+		
+		}else {
+			for(int i=0;i<24;i++) {
+				gHRinputs[i+3]=""+i;
+			}
+		}
+
+		String input="";
+		System.out.println("Please input a name for your Event(Cannot be esc, ESC, or Esc)");
+		input=myscan.nextLine();
+		if(input.equals("ESC")||input.equals("esc")||input.equals("Esc")) {
+			return;
+		}
+		String name =input;
+		System.out.println("please input the date you would liked to schedual your event on.(MM/dd/yyyy)");
+		String date;
+		input= myscan.nextLine();
+		if(input.equals("ESC")||input.equals("esc")||input.equals("Esc")) {
+			return;
+		}
+		//TODO-check date here and loop if incorrect info or format(while letting the user know why they are a fool);
+		date=input;
+		System.out.println("please input the time you want to have the event");
+		String time;//could also be a list of strings or list of ints
+		input=myscan.nextLine();
+		//TODO-this should allow for multiple inputs either separated by a comma or allow for time spans, eg. 11:00-15:00, 16:00-20:30
+		//should also loop until correct input is received.
+		time=input;
+		//where i stopped-js
+		Event myEvent=new Event(time,date,name);
+	}
 
 }
