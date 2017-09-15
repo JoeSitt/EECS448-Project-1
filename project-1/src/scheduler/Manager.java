@@ -15,10 +15,14 @@ import java.util.TreeSet;
  * @author cmaxcy
  *
  */
+
+
+// TODO(cmaxcy):
+// - Perform a check upon initialization if file containing data has been written. If
+//   so, load info from there. Else star fresh
 public class Manager {
 	
 	private ArrayList<Event> events = new ArrayList<Event>();
-	private String dateFormat = "MM/dd/yyyy";
 	
 	public ArrayList<Event> getEvents() {
 		return events;
@@ -27,17 +31,4 @@ public class Manager {
 	public void addEvent(Event event) {
 		events.add(event);
 	}
-	
-	public static void main(String[] args) {
-//		Manager mrM = new Manager();
-//		
-//		Date date = mrM.parseDate("01/091/2017");
-//		
-//		Event event = new Event(date, "party");
-//		
-//		System.out.println(event.getDate());
-//		
-//		mrM.addEvent(event);
-	}
-
 }
