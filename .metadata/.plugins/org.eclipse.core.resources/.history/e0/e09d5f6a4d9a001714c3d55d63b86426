@@ -8,15 +8,10 @@ import java.text.SimpleDateFormat;
 
 /**
  * Encapsulates an Event. Contains methods for extracting date from string input. 
- * Date format is specifiable in retrieval methods.
  * 
- * Potential formats:
- * MM/dd/yyyy
- * MM-dd-yyyy
+ * Suggested date format is MM/dd/yyyy though this can be specified for Date inpu/output
  * 
- * References:
- * https://stackoverflow.com/questions/999172/how-to-parse-a-date
- * https://docs.oracle.com/javase/8/docs/api/java/util/Date.html
+ *
  */
 public class Event implements Serializable {
 	
@@ -24,7 +19,7 @@ public class Event implements Serializable {
 	private String name;
 	private List<Attendee> attendees;
 	
-	// Required for serialization
+	// Serializable requires this member variable be included
 	private static final long serialVersionUID = 1L;
 	
 	public Event(Date date, String name) {

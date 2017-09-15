@@ -21,7 +21,7 @@ public class Manager implements Serializable {
 	
 	private List<Event> events = new ArrayList<Event>();
 	
-	// Required for serialization
+	// Serializable requires this member variable be included
 	private static final long serialVersionUID = 1L;
 	
 	public List<Event> getEvents() {

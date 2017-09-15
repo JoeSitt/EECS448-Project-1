@@ -24,7 +24,7 @@ public class Event implements Serializable {
 	private String name;
 	private List<Attendee> attendees;
 	
-	// Required for serialization
+	// Serializable requires this member variable be included
 	private static final long serialVersionUID = 1L;
 	
 	public Event(Date date, String name) {

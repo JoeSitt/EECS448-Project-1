@@ -13,15 +13,12 @@ import java.util.List;
 
 /**
  * Used to store a set of events. Instances can be read and written to file.
- * 
- * References:
- * https://stackoverflow.com/questions/447898/what-is-object-serialization
  */
 public class Manager implements Serializable {
 	
 	private List<Event> events = new ArrayList<Event>();
 	
-	// Required for serialization
+	// Serializable requires this member variable be included
 	private static final long serialVersionUID = 1L;
 	
 	public List<Event> getEvents() {
@@ -46,7 +43,7 @@ public class Manager implements Serializable {
 	}
 	
 	/*
-	 * Writes instance to supplied file
+	 * Writes Class instance to supplied file
 	 */
 	public void write(String fileName) throws IOException {
 		FileOutputStream f = new FileOutputStream(new File(fileName));

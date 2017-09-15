@@ -16,7 +16,6 @@ import java.text.SimpleDateFormat;
  * 
  * References:
  * https://stackoverflow.com/questions/999172/how-to-parse-a-date
- * https://docs.oracle.com/javase/8/docs/api/java/util/Date.html
  */
 public class Event implements Serializable {
 	
@@ -24,7 +23,7 @@ public class Event implements Serializable {
 	private String name;
 	private List<Attendee> attendees;
 	
-	// Required for serialization
+	// Serializable requires this member variable be included
 	private static final long serialVersionUID = 1L;
 	
 	public Event(Date date, String name) {
