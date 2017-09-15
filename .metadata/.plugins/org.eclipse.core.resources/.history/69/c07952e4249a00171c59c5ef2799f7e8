@@ -184,9 +184,6 @@ public class Event implements Serializable {
 		System.out.println();
 		
 		// Attempt date reading with valid but not specified date format
-		String dateString5 = "11-01-2017";
-		Date parsedDate5 = Event.parseDate(dateString5, goodFormat1);
-		System.out.println(parsedDate5);
-		System.out.println(Event.isDateStringValid(dateString5, goodFormat1));
+		Date parsedDate5 = Event.parseDate("11-01-2017", goodFormat1);
 	}
 }
