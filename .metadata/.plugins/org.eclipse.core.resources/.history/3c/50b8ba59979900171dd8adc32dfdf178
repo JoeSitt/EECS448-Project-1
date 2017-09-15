@@ -1,0 +1,115 @@
+package scheduler;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.TreeSet;
+
+/**
+ * Keeps track of Events, allowing them to be added and summarized upon request.
+ * 
+ * @author cmaxcy
+ *
+ */
+public class Manager {
+	
+	private ArrayList<Event> events = new ArrayList<Event>();
+	private String dateFormat = "MM/dd/yyyy";
+	
+	/*
+	 * https://stackoverflow.com/questions/10817037/java-convert-treeset-to-list
+	 */
+	public ArrayList<Event> getEvents() {
+		return events;
+	}
+	
+	/*
+	 * Parse date from string. In the case in which a non-existent or un-parsable date is passed, null is returned.
+	 * 
+	 * https://stackoverflow.com/questions/226910/how-to-sanity-check-a-date-in-java
+	 * 
+	 */
+	// TODO(cmaxcy): Test
+	public Date parseDate(String dateString) {
+		DateFormat df = new SimpleDateFormat(dateFormat);
+		Date date;
+		
+		// Ensure date is formatted correctly
+		try {
+			date = df.parse(dateString);
+		} catch(ParseException e) {
+			return null;
+		}
+		
+		Calendar dateChecker = Calendar.getInstance();
+		dateChecker.setLenient(false);
+		dateChecker.setTime(date);
+		
+		// Ensure date exists
+		try {
+			dateChecker.getTime();
+		} catch(Exception e) {
+			return null;
+		}
+		
+		// Checks passed
+		return date;
+	}
+	
+	public void addEvent(Event event) {
+		events.add(event);
+	}
+	
+	public static void main(String[] args) {
+		Manager mrM = new Manager();
+		
+		Date date = mrM.parseDate("01/01/2017");
+		Date date2 = mrM.parseDate("01/01/2017");
+		
+		if (date != null) {
+			System.out.println(date.toString());
+		} else {
+			System.out.println("Unreconignized");
+		}
+		if (date != date2) {
+			System.out.println(date.toString());
+		} 
+		
+//		Event event = new Event(date, "party");
+//		
+//		Time t1 = new Time("08:30");
+//		t1.addAttendee("John");
+//		t1.addAttendee("Cena");
+//		
+//		Time t2 = new Time("08:00");
+//		t2.addAttendee("Larry");
+//		t2.addAttendee("Bird");
+//		
+//		Time t3 = new Time("01:00");
+//		t3.addAttendee("Magic");
+//		t3.addAttendee("Johnson");
+//		
+//		Time t4 = new Time("23:00");
+//		t4.addAttendee("Michael");
+//		t4.addAttendee("Jordan");
+//		t4.addAttendee("Bob");
+//		
+//		event.addTime(t1);
+//		event.addTime(t2);
+//		event.addTime(t3);
+//		event.addTime(t4);
+//		
+//		mrM.addEvent(event);
+//		
+//		System.out.print(event.getSummary(false));
+//		
+//		String sTime = "08:30";
+//		
+//		System.out.println(Time.isTimeStringValid(sTime));
+	}
+
+}

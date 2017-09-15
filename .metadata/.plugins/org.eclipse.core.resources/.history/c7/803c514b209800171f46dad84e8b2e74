@@ -1,0 +1,55 @@
+package scheduler;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TreeSet;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+/**
+ * Encapsulates an Event. Contains the name, date, and set of times in which the event will take place.
+ * 
+ * @author cmaxcy
+ *
+ */
+
+public class Event {
+	
+	// TODO(cmaxcy): make these private
+	public Date date;
+	public String name;
+	
+	public TreeSet<Time> times;
+	
+	public Event(Date date, String name) {
+		this.date = date;
+		this.name = name;
+		this.times = new TreeSet<Time>();
+	}
+	
+	public static void main(String[] args) {
+		String input = "1/1/2017";
+		Manager mrManager = new Manager();
+		
+		Date parsedDate = mrManager.parseDate(input);
+		
+		Event testEvent = new Event(parsedDate, "Jerry's Party");
+		
+		System.out.println(testEvent.date.toString());
+		System.out.println(testEvent.name);
+		
+		Time t1 = new Time("08:30:00");
+		Time t2 = new Time("08:30:00");
+		
+		testEvent.times.add(t1);
+		testEvent.times.add(t2);
+		
+		for (Time t : testEvent.times) {
+			System.out.println(t.time);
+		}
+	}
+	
+	
+}

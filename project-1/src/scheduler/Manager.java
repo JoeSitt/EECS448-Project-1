@@ -15,63 +15,29 @@ import java.util.TreeSet;
  * @author cmaxcy
  *
  */
-
-// TODO(cmaxcy):
-// - Implement
-// - Document
-// - Test
-
 public class Manager {
 	
-	private TreeSet<Event> events;
+	private ArrayList<Event> events = new ArrayList<Event>();
 	private String dateFormat = "MM/dd/yyyy";
 	
-	/*
-	 * https://stackoverflow.com/questions/10817037/java-convert-treeset-to-list
-	 */
-	public List<Event> getEvents() {
-		return new ArrayList<Event> (events);
+	public ArrayList<Event> getEvents() {
+		return events;
 	}
 	
-	/*
-	 * Parse date from string. In the case in which a non-existent or un-parsable date is passed, null is returned.
-	 * 
-	 * https://stackoverflow.com/questions/226910/how-to-sanity-check-a-date-in-java
-	 * 
-	 */
-	// TODO(cmaxcy): Test
-	public Date parseDate(String dateString) {
-		DateFormat df = new SimpleDateFormat(dateFormat);
-		Date date;
-		
-		// Ensure date is formatted correctly
-		try {
-			date = df.parse(dateString);
-		} catch(ParseException e) {
-			return null;
-		}
-		
-		Calendar dateChecker = Calendar.getInstance();
-		dateChecker.setLenient(false);
-		dateChecker.setTime(date);
-		
-		// Ensure date exists
-		try {
-			dateChecker.getTime();
-		} catch(Exception e) {
-			return null;
-		}
-		
-		// Checks passed
-		return date;
+	public void addEvent(Event event) {
+		events.add(event);
 	}
 	
 	public static void main(String[] args) {
-//		TreeSet<Event> mySet = new TreeSet<Event>();
-//		Event myEvent = new Event("", "", "");
-//		mySet.add(myEvent);
+//		Manager mrM = new Manager();
 //		
-//		System.out.println(mySet.isEmpty());
+//		Date date = mrM.parseDate("01/091/2017");
+//		
+//		Event event = new Event(date, "party");
+//		
+//		System.out.println(event.getDate());
+//		
+//		mrM.addEvent(event);
 	}
 
 }

@@ -1,0 +1,94 @@
+package scheduler;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.TreeSet;
+
+/**
+ * Keeps track of Events, allowing them to be added and summarized upon request.
+ * 
+ * @author cmaxcy
+ *
+ */
+public class Manager {
+	
+	private ArrayList<Event> events = new ArrayList<Event>();
+	private String dateFormat = "MM/dd/yyyy";
+	
+	/*
+	 * https://stackoverflow.com/questions/10817037/java-convert-treeset-to-list
+	 */
+	public ArrayList<Event> getEvents() {
+		return events;
+	}
+	
+	/*
+	 * Returns whether or not the date string passed is valid.
+	 * A date string is considered valid if it follows the passed format and exists.
+	 */
+	// TODO(cmaxcy): test
+	public static boolean isDateStringValid(String dateString, String dateFormat) {
+		
+		SimpleDateFormat format = new SimpleDateFormat(dateFormat);
+		format.setLenient(false);
+		
+		// Attempt parsing of dateString
+		try {
+			format.parse(dateString);
+		} catch(Exception e) {
+			return false;
+		}
+		
+		// date string must be valid
+		return true;
+	}
+	
+	/*
+	 * Parse date from string. String is expected to follow passed date format.
+	 * Method will return null if format is not followed.
+	 */
+	// TODO(cmaxcy): test
+	public static Date parseDate(String dateString, String dateFormat) {
+		
+		SimpleDateFormat format = new SimpleDateFormat(dateFormat);
+		format.setLenient(false);
+		Date date;
+		
+		// Attempt parsing of dateString
+		try {
+			date = format.parse(dateString);
+		} catch(Exception e) {
+			return null;
+		}
+		
+		// date string must be valid
+		return date;
+	}
+	
+	public void addEvent(Event event) {
+		events.add(event);
+	}
+	
+	public static void main(String[] args) {
+//		Manager mrM = new Manager();
+//		
+//		Date date = mrM.parseDate("01/091/2017");
+//		
+//		Event event = new Event(date, "party");
+//		
+//		System.out.println(event.getDate());
+//		
+//		mrM.addEvent(event);
+		
+		String formatString = "MM/dd/yyyy";
+		String sampleDate = "01/0a/2017";
+		
+		System.out.println(Manager.isDateStringValid(sampleDate, formatString));
+	}
+
+}
