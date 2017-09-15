@@ -1,0 +1,25 @@
+package scheduler;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+// TODO(cmaxcy):
+// - Perform a check upon initialization if file containing data has been written. If
+//   so, load info from there. Else start fresh
+public class Manager {
+	
+	private List<Event> events = new ArrayList<Event>();
+	
+	public List<Event> getEvents() {
+		return events;
+	}
+	
+	public void addEvent(Event event) {
+		events.add(event);
+	}
+	
+	public static void main(String[] args) {
+		Event event = new Event(new Date(), "Party");
+	}
+}

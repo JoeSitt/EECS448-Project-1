@@ -1,19 +1,22 @@
 package scheduler;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.io.Serializable;
+import java.util.TreeSet;
+
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-public class Event implements Serializable {
+
+
+public class Event {
 	
 	private Date date;
 	private String name;
 	private List<Attendee> attendees;
-	
-	// Serializable requires this member variable be included
-	private static final long serialVersionUID = 1L;
 	
 	public Event(Date date, String name) {
 		this.date = date;

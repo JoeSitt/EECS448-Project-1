@@ -1,9 +1,7 @@
 package scheduler;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -29,16 +27,7 @@ public class Manager implements Serializable {
 	}
 	
 	public static void main(String[] args) {
-		Manager mrM = new Manager();
-		Event event = new Event(new Date(), "Johhny");
-		
-		mrM.addEvent(event);
-		
-		mrM.write("SampleClass-test.txt");
-		
-		Manager newOne = Manager.read("SampleClass-test.txt");
-		
-		System.out.println(newOne.getEvents().get(0).getName());
+		Event event = new Event(new Date(), "Party");
 	}
 	
 	/*
@@ -55,30 +44,7 @@ public class Manager implements Serializable {
 			o.close();
 			f.close();
 		} catch (Exception e) {
-			System.out.println("ERROR");
 			System.out.println(e.getMessage());
 		}
-	}
-	
-	/*
-	 * Reads and constructs instance from file
-	 */
-	public static Manager read(String fileName) {
-		
-		try {
-			FileInputStream fi = new FileInputStream(new File(fileName));
-			ObjectInputStream oi = new ObjectInputStream(fi);
-
-			Manager pr1 = (Manager) oi.readObject();
-
-			// close file reading objects
-			oi.close();
-			fi.close();
-			
-			return pr1;
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		return null;
 	}
 }
