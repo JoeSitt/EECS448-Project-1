@@ -3,7 +3,6 @@ package scheduler;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -11,9 +10,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+// TODO(cmaxcy):
+// - Perform a check upon initialization if file containing data has been written. If
+//   so, load info from there. Else start fresh
 public class Manager implements Serializable {
 	
 	private List<Event> events = new ArrayList<Event>();
+	private String saveName = "save.txt";
 	
 	// Serializable requires this member variable be included
 	private static final long serialVersionUID = 1L;
@@ -26,7 +29,7 @@ public class Manager implements Serializable {
 		events.add(event);
 	}
 	
-	public static void main(String[] args) throws IOException, ClassNotFoundException {
+	public static void main(String[] args) {
 		Manager mrM = new Manager();
 		Event event = new Event(new Date(), "Johhny");
 		
@@ -42,7 +45,7 @@ public class Manager implements Serializable {
 	/*
 	 * Writes Class instance to supplied file
 	 */
-	public void write(String fileName) throws IOException {
+	public void write(String fileName) {
 		FileOutputStream f = new FileOutputStream(new File(fileName));
 		ObjectOutputStream o = new ObjectOutputStream(f);
 		
@@ -56,16 +59,22 @@ public class Manager implements Serializable {
 	/*
 	 * Reads and constructs instance from file
 	 */
-	public static Manager read(String fileName) throws IOException, ClassNotFoundException {
-		FileInputStream fi = new FileInputStream(new File(fileName));
-		ObjectInputStream oi = new ObjectInputStream(fi);
-
-		Manager pr1 = (Manager) oi.readObject();
-
-		// close file reading objects
-		oi.close();
-		fi.close();
+	public static Manager read(String fileName) {
 		
-		return pr1;
+		try {
+			FileInputStream fi = new FileInputStream(new File(fileName));
+			ObjectInputStream oi = new ObjectInputStream(fi);
+
+			Manager pr1 = (Manager) oi.readObject();
+
+			// close file reading objects
+			oi.close();
+			fi.close();
+			
+			return pr1;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
 	}
 }

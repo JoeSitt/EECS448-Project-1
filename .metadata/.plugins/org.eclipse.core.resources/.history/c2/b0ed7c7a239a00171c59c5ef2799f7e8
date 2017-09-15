@@ -2,6 +2,7 @@ package scheduler;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -11,9 +12,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+// TODO(cmaxcy):
+// - Perform a check upon initialization if file containing data has been written. If
+//   so, load info from there. Else start fresh
 public class Manager implements Serializable {
 	
 	private List<Event> events = new ArrayList<Event>();
+	private String saveName = "save.txt";
 	
 	// Serializable requires this member variable be included
 	private static final long serialVersionUID = 1L;

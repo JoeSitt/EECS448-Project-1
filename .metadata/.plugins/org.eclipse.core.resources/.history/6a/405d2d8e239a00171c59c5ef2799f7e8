@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+// TODO(cmaxcy):
+// - Perform a check upon initialization if file containing data has been written. If
+//   so, load info from there. Else start fresh
 public class Manager implements Serializable {
 	
 	private List<Event> events = new ArrayList<Event>();
