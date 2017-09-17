@@ -32,6 +32,8 @@ public class Manager implements Serializable {
 		return new ArrayList<Event>(events);
 	}
 	
+	
+	
 	public Manager() {
 		events = new TreeSet<Event>();
 	}

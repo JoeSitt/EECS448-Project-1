@@ -25,14 +25,15 @@ public class Manager implements Serializable {
 	// Required for serialization
 	private static final long serialVersionUID = 1L;
 	
-	/**
-	 * @return List of events.
-	 */
 	public List<Event> getEvents() {
 		return new ArrayList<Event>(events);
 	}
 	
-	public Manager() {
+	public static Manager makeManager() {
+		return new Manager();
+	}
+	
+	private Manager() {
 		events = new TreeSet<Event>();
 	}
 	

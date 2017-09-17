@@ -1,6 +1,5 @@
 package scheduler;
 
-import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -14,9 +13,6 @@ public class Time implements Comparable<Time>, Serializable {
 	
 	public static String militaryTimeFormat = "HH:mm";
 	public static String civilianTimeFormat = "hh:mmaa";
-	
-	// Required for serialization
-	private static final long serialVersionUID = 1L;
 	
 	/**
 	 * Internal time constructor.

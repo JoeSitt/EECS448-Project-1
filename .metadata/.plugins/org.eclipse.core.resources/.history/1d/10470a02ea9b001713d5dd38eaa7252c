@@ -32,7 +32,7 @@ public class Manager implements Serializable {
 		return new ArrayList<Event>(events);
 	}
 	
-	public Manager() {
+	private Manager() {
 		events = new TreeSet<Event>();
 	}
 	

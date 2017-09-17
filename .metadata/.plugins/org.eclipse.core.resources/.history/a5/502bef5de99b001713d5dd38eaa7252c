@@ -1,22 +1,18 @@
 package scheduler;
 
-import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
  * Representation of one of the 48 half-hours in a day.
  */
-public class Time implements Comparable<Time>, Serializable {
+public class Time implements Comparable<Time> {
 	
 	private int milHours;
 	private boolean onHour;
 	
 	public static String militaryTimeFormat = "HH:mm";
 	public static String civilianTimeFormat = "hh:mmaa";
-	
-	// Required for serialization
-	private static final long serialVersionUID = 1L;
 	
 	/**
 	 * Internal time constructor.

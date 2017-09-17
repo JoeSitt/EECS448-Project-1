@@ -1,6 +1,5 @@
 package scheduler;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
@@ -10,13 +9,10 @@ import java.util.TreeSet;
  * 
  * Includes their name and which half-hour time slots in the day are to be associated with them.
  */
-public class User implements Comparable<User>, Serializable {
+public class User implements Comparable<User> {
 	
 	private String name;
 	private TreeSet<Time> timeSlots;
-	
-	// Required for serialization
-	private static final long serialVersionUID = 1L;
 	
 	/**
 	 * User name specified and empty set of timeSlots created.

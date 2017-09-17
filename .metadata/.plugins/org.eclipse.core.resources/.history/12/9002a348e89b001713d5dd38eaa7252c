@@ -25,47 +25,27 @@ public class Manager implements Serializable {
 	// Required for serialization
 	private static final long serialVersionUID = 1L;
 	
-	/**
-	 * @return List of events.
-	 */
 	public List<Event> getEvents() {
 		return new ArrayList<Event>(events);
 	}
 	
-	public Manager() {
-		events = new TreeSet<Event>();
-	}
-	
-	/**
-	 * Add event to event set. Event must have unique name.
-	 * 
-	 * @param event New event to be added.
-	 * @return True only if the event was successfully added.
-	 */
-	public boolean addEvent(Event event) {
-		if (events.contains(event)) {
-			return false;
-		}
+	public void addEvent(Event event) {
 		events.add(event);
-		return true;
 	}
 	
-//	public static void main(String[] args) throws IOException, ClassNotFoundException {
-//		Manager mrM = new Manager();
-//		Event event = new Event(new Date(), "Johhny");
-//		User user = new User("John");
-//		Time time = Time.makeTime(9, true);
-//		user.addTime(time);
-//		event.addUser(user);
-//		mrM.addEvent(event);
-//		
-//		mrM.write("SampleClass-test.txt");
-//		
-//		Manager newOne = Manager.read("SampleClass-test.txt");
-//		
-//		System.out.println(newOne.getEvents().get(0).getName());
-//	}
-//	
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
+		Manager mrM = new Manager();
+		Event event = new Event(new Date(), "Johhny");
+		
+		mrM.addEvent(event);
+		
+		mrM.write("SampleClass-test.txt");
+		
+		Manager newOne = Manager.read("SampleClass-test.txt");
+		
+		System.out.println(newOne.getEvents().get(0).getName());
+	}
+	
 //	/*
 //	 * Writes instance to supplied file
 //	 */
