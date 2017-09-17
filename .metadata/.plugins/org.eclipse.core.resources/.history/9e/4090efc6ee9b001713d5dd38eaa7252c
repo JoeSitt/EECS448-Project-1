@@ -252,7 +252,7 @@ public class ui {
 		//should also loop until correct input is received.
 		time=input;
 		//where i stopped-js
-//		Event myEvent=new Event(time,date,name);
+		Event myEvent=new Event(time,date,name);
 	}
 
 }
