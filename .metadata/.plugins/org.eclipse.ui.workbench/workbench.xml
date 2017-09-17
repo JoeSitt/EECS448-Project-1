@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="23" version="2.0">
+<workbench progressCount="24" version="2.0">
 <workbenchAdvisor/>
 <window height="1173" maximized="true" width="960" x="0" y="27">
 <fastViewData fastViewLocation="1024"/>
@@ -31,43 +31,13 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
-<part id="1"/>
-<part id="2"/>
-<part id="3"/>
-<part id="4"/>
-<part id="5"/>
-<part id="6"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Main.java" partName="Main.java" path="/home/c794m234/EECS_448/project-1/EECS448-Project-1/project-1/src/scheduler/Main.java" title="Main.java" tooltip="project-1/src/scheduler/Main.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Main.java" partName="Main.java" path="/home/c794m234/EECS_448/project-1/EECS448-Project-1/project-1/src/scheduler/Main.java" title="Main.java" tooltip="project-1/src/scheduler/Main.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/project-1/src/scheduler/Main.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="101" selectionTopPixel="0"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Event.java" partName="Event.java" path="/home/c794m234/EECS_448/project-1/EECS448-Project-1/project-1/src/scheduler/Event.java" title="Event.java" tooltip="project-1/src/scheduler/Event.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/project-1/src/scheduler/Event.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1293" selectionTopPixel="1380"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Manager.java" partName="Manager.java" path="/home/c794m234/EECS_448/project-1/EECS448-Project-1/project-1/src/scheduler/Manager.java" title="Manager.java" tooltip="project-1/src/scheduler/Manager.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/project-1/src/scheduler/Manager.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="727" selectionTopPixel="162"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Attendee.java" partName="Attendee.java" path="/home/c794m234/EECS_448/project-1/EECS448-Project-1/project-1/src/scheduler/Attendee.java" title="Attendee.java" tooltip="project-1/src/scheduler/Attendee.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/project-1/src/scheduler/Attendee.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SampleClass.java" partName="SampleClass.java" path="/home/c794m234/EECS_448/project-1/EECS448-Project-1/project-1/src/scheduler/SampleClass.java" title="SampleClass.java" tooltip="project-1/src/scheduler/SampleClass.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/project-1/src/scheduler/SampleClass.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Time.java" partName="Time.java" path="/home/c794m234/EECS_448/project-1/EECS448-Project-1/project-1/src/scheduler/Time.java" title="Time.java" tooltip="project-1/src/scheduler/Time.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/project-1/src/scheduler/Time.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="931" selectionTopPixel="2223"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TimeTest.java" partName="TimeTest.java" path="/home/c794m234/EECS_448/project-1/EECS448-Project-1/project-1/src/scheduler/TimeTest.java" title="TimeTest.java" tooltip="project-1/src/scheduler/TimeTest.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/project-1/src/scheduler/TimeTest.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="369" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -114,6 +84,7 @@
 <expanded>
 <category IMemento.internal.id="Errors"/>
 <category IMemento.internal.id="Warnings"/>
+<category IMemento.internal.id="Warnings (9 items)"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="695" org.eclipse.ui.ide.pathField="140" org.eclipse.ui.ide.resourceField="105" org.eclipse.ui.ide.severityAndDescriptionField="350"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -343,161 +314,162 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/project-1/src/scheduler/Time.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/project-1/src/scheduler/Manager.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/project-1/src/scheduler/ManagerTest.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/project-1/src/scheduler/Main.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/project-1/src/scheduler/Event.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/project-1/src/scheduler/Tester.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/project-1/src/scheduler/TimeTest.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/project-1/src/scheduler/Event.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/project-1/src/scheduler/EventTest.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/project-1/src/scheduler/ui.java"/>
 </editors>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="922" y="0"/>
+<item historyLabel="ManagerTest.java" index="1">
+<position info="not_deleted" x="1629" y="0"/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="2137" y="0"/>
+<item historyLabel="ManagerTest.java" index="1">
+<position info="not_deleted" x="1714" y="0"/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="2206" y="0"/>
+<item historyLabel="ManagerTest.java" index="1">
+<position info="not_deleted" x="1705" y="0"/>
 </item>
-<item historyLabel="Event.java" index="1">
-<position info="not_deleted" x="1293" y="0"/>
+<item historyLabel="ManagerTest.java" index="1">
+<position info="not_deleted" x="2121" y="0"/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="2206" y="0"/>
+<item historyLabel="ManagerTest.java" index="1">
+<position info="not_deleted" x="1855" y="0"/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="2204" y="0"/>
+<item historyLabel="ManagerTest.java" index="1">
+<position info="not_deleted" x="1911" y="0"/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="1676" y="0"/>
+<item historyLabel="ManagerTest.java" index="1">
+<position info="not_deleted" x="1942" y="0"/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="1468" y="0"/>
+<item historyLabel="ManagerTest.java" index="1">
+<position info="not_deleted" x="2121" y="0"/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="1673" y="0"/>
+<item historyLabel="ManagerTest.java" index="1">
+<position info="not_deleted" x="2007" y="0"/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="1520" y="0"/>
+<item historyLabel="ManagerTest.java" index="1">
+<position info="not_deleted" x="2115" y="0"/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="1571" y="0"/>
+<item historyLabel="ManagerTest.java" index="1">
+<position info="not_deleted" x="2121" y="0"/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="1566" y="0"/>
-</item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="376" y="0"/>
-</item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="1415" y="0"/>
-</item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="1007" y="0"/>
-</item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="1054" y="0"/>
-</item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="1412" y="0"/>
-</item>
-<item historyLabel="Time.java" index="0">
+<item historyLabel="ManagerTest.java" index="1">
 <position/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="3117" y="0"/>
+<item historyLabel="ManagerTest.java" index="1">
+<position info="not_deleted" x="2012" y="105"/>
 </item>
-<item historyLabel="Time.java" index="0">
+<item historyLabel="Main.java" index="2">
+<position info="not_deleted" x="101" y="0"/>
+</item>
+<item historyLabel="Manager.java" index="0">
 <position/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="4607" y="0"/>
+<item historyLabel="Manager.java" index="0">
+<position info="not_deleted" x="2832" y="0"/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="4725" y="0"/>
-</item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="4768" y="0"/>
-</item>
-<item historyLabel="Time.java" index="0">
+<item historyLabel="Manager.java" index="0">
 <position/>
 </item>
-<item historyLabel="Time.java" index="0">
+<item historyLabel="ManagerTest.java" index="1">
+<position info="not_deleted" x="1791" y="0"/>
+</item>
+<item historyLabel="ManagerTest.java" index="1">
+<position info="not_deleted" x="1709" y="0"/>
+</item>
+<item historyLabel="Manager.java" index="0">
+<position info="not_deleted" x="2832" y="0"/>
+</item>
+<item historyLabel="ManagerTest.java" index="1">
+<position info="not_deleted" x="1709" y="0"/>
+</item>
+<item historyLabel="Manager.java" index="0">
+<position info="not_deleted" x="1434" y="0"/>
+</item>
+<item historyLabel="ManagerTest.java" index="1">
+<position info="not_deleted" x="1709" y="0"/>
+</item>
+<item historyLabel="ManagerTest.java" index="1">
+<position info="not_deleted" x="965" y="658"/>
+</item>
+<item historyLabel="Event.java" index="3">
+<position info="not_deleted" x="527" y="0"/>
+</item>
+<item historyLabel="Manager.java" index="0">
+<position info="not_deleted" x="1434" y="0"/>
+</item>
+<item historyLabel="Manager.java" index="0">
 <position/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position/>
+<item historyLabel="Manager.java" index="0">
+<position info="not_deleted" x="1154" y="0"/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="1620" y="0"/>
+<item historyLabel="Event.java" index="3">
+<position info="not_deleted" x="527" y="0"/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="2466" y="0"/>
+<item historyLabel="Manager.java" index="0">
+<position info="not_deleted" x="1154" y="0"/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="2769" y="0"/>
+<item historyLabel="Manager.java" index="0">
+<position info="not_deleted" x="1117" y="0"/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="2727" y="0"/>
+<item historyLabel="ManagerTest.java" index="1">
+<position info="not_deleted" x="1461" y="0"/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="2727" y="0"/>
+<item historyLabel="Manager.java" index="0">
+<position info="not_deleted" x="1117" y="0"/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="1620" y="0"/>
+<item historyLabel="ManagerTest.java" index="1">
+<position info="not_deleted" x="1461" y="0"/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="4098" y="0"/>
+<item historyLabel="ManagerTest.java" index="1">
+<position info="not_deleted" x="993" y="0"/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="3650" y="0"/>
+<item historyLabel="ManagerTest.java" index="1">
+<position info="not_deleted" x="1458" y="0"/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="931" y="0"/>
+<item historyLabel="ManagerTest.java" index="1">
+<position info="not_deleted" x="1287" y="0"/>
 </item>
-<item historyLabel="Tester.java" index="2">
-<position info="not_deleted" x="67" y="0"/>
+<item historyLabel="Manager.java" index="0">
+<position info="not_deleted" x="970" y="0"/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="931" y="0"/>
+<item historyLabel="ManagerTest.java" index="1">
+<position info="not_deleted" x="157" y="0"/>
 </item>
-<item historyLabel="TimeTest.java" index="3">
-<position info="not_deleted" x="426" y="0"/>
+<item historyLabel="Main.java" index="2">
+<position info="not_deleted" x="101" y="0"/>
 </item>
-<item historyLabel="Time.java" index="0">
-<position info="not_deleted" x="931" y="0"/>
+<item historyLabel="Event.java" index="3">
+<position info="not_deleted" x="527" y="0"/>
 </item>
-<item historyLabel="TimeTest.java" index="3">
-<position info="not_deleted" x="426" y="0"/>
+<item historyLabel="Manager.java" index="0">
+<position info="not_deleted" x="970" y="0"/>
 </item>
-<item historyLabel="TimeTest.java" index="3">
-<position info="not_deleted" x="230" y="0"/>
+<item historyLabel="EventTest.java" index="4">
+<position info="not_deleted" x="2762" y="0"/>
 </item>
-<item historyLabel="TimeTest.java" index="3">
-<position/>
+<item historyLabel="ui.java" index="5">
+<position info="not_deleted" x="9021" y="2"/>
 </item>
-<item historyLabel="TimeTest.java" index="3">
-<position info="not_deleted" x="230" y="0"/>
+<item historyLabel="EventTest.java" index="4">
+<position info="not_deleted" x="2762" y="0"/>
 </item>
-<item historyLabel="TimeTest.java" index="3">
-<position info="not_deleted" x="426" y="0"/>
+<item historyLabel="Manager.java" index="0">
+<position info="not_deleted" x="970" y="0"/>
 </item>
-<item historyLabel="TimeTest.java" index="3">
-<position info="not_deleted" x="633" y="31"/>
+<item historyLabel="Event.java" index="3">
+<position info="not_deleted" x="527" y="0"/>
 </item>
-<item historyLabel="TimeTest.java" index="3">
-<position info="not_deleted" x="555" y="31"/>
+<item historyLabel="Main.java" index="2">
+<position info="not_deleted" x="101" y="0"/>
 </item>
-<item historyLabel="TimeTest.java" index="3">
-<position info="not_deleted" x="663" y="0"/>
+<item historyLabel="Event.java" index="3">
+<position info="not_deleted" x="527" y="0"/>
 </item>
-<item historyLabel="TimeTest.java" index="3">
-<position info="not_deleted" x="426" y="0"/>
-</item>
-<item historyLabel="TimeTest.java" index="3">
-<position info="not_deleted" x="426" y="0"/>
-</item>
-<item active="true" historyLabel="Event.java" index="4">
-<position info="not_deleted" x="1293" y="0"/>
+<item active="true" historyLabel="Main.java" index="2">
+<position info="not_deleted" x="101" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -519,8 +491,32 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="user.java" tooltip="project-1/src/scheduler/user.java">
+<persistable path="/project-1/src/scheduler/user.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Attendee.java" tooltip="project-1/src/scheduler/Attendee.java">
+<persistable path="/project-1/src/scheduler/Attendee.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ui.java" tooltip="project-1/src/scheduler/ui.java">
+<persistable path="/project-1/src/scheduler/ui.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ManagerTest.java" tooltip="project-1/src/scheduler/ManagerTest.java">
+<persistable path="/project-1/src/scheduler/ManagerTest.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UserTest.java" tooltip="project-1/src/scheduler/UserTest.java">
+<persistable path="/project-1/src/scheduler/UserTest.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EventTest.java" tooltip="project-1/src/scheduler/EventTest.java">
+<persistable path="/project-1/src/scheduler/EventTest.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TimeTest.java" tooltip="project-1/src/scheduler/TimeTest.java">
 <persistable path="/project-1/src/scheduler/TimeTest.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="User.java" tooltip="project-1/src/scheduler/User.java">
+<persistable path="/project-1/src/scheduler/User.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="NewTime.java" tooltip="project-1/src/scheduler/NewTime.java">
+<persistable path="/project-1/src/scheduler/NewTime.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Tester.java" tooltip="project-1/src/scheduler/Tester.java">
 <persistable path="/project-1/src/scheduler/Tester.java"/>
@@ -531,32 +527,14 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SampleClass.java" tooltip="project-1/src/scheduler/SampleClass.java">
 <persistable path="/project-1/src/scheduler/SampleClass.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Attendee.java" tooltip="project-1/src/scheduler/Attendee.java">
-<persistable path="/project-1/src/scheduler/Attendee.java"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Manager.java" tooltip="project-1/src/scheduler/Manager.java">
 <persistable path="/project-1/src/scheduler/Manager.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Event.java" tooltip="project-1/src/scheduler/Event.java">
 <persistable path="/project-1/src/scheduler/Event.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="user.java" tooltip="project-1/src/scheduler/user.java">
-<persistable path="/project-1/src/scheduler/user.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ui.java" tooltip="project-1/src/scheduler/ui.java">
-<persistable path="/project-1/src/scheduler/ui.java"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SampleWritReadClass.java" tooltip="project-1/src/scheduler/SampleWritReadClass.java">
 <persistable path="/project-1/src/scheduler/SampleWritReadClass.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Person.java" tooltip="project-1/src/scheduler/Person.java">
-<persistable path="/project-1/src/scheduler/Person.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="House.java" tooltip="project-1/src/scheduler/House.java">
-<persistable path="/project-1/src/scheduler/House.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Main.java" tooltip="project-1/src/scheduler/Main.java">
-<persistable path="/project-1/src/scheduler/Main.java"/>
 </file>
 </mruList>
 </workbench>

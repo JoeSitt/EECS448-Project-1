@@ -2,22 +2,26 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="milTime" key="selection"/>
-		<item value="false" key="casesensitive"/>
+		<item value="Event" key="selection"/>
+		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="User"/>
+			<item value=" e "/>
+			<item value="time"/>
+			<item value="nt"/>
+			<item value="NewTime"/>
 			<item value="useMil"/>
 			<item value="setLenient"/>
 			<item value="onHour"/>
-			<item value="getTimeEasy"/>
-			<item value="date"/>
-			<item value="SampleClass"/>
-			<item value="attendeeList"/>
-			<item value="ui"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Event"/>
+			<item value=" testEvent"/>
+			<item value="Time"/>
+			<item value="otherTime"/>
 			<item value="milTime"/>
 			<item value="makeTime"/>
 			<item value="attendees"/>
