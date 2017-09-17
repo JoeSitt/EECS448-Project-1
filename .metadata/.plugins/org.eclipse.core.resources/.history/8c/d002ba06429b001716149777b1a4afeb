@@ -1,0 +1,166 @@
+package scheduler;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public class Time {
+	
+	private boolean[] timeSlots;
+	
+	public static String militaryTimeFormat = "HH:mm";
+	public static String civilianTimeFormat = "hh:mmaa";
+	
+	public Time() {
+		timeSlots = new boolean[48];
+	}
+	
+	/*
+	 * Add supplied time to timeSlots.
+	 * Returns false if time passed is invalid or already contained in slots.
+	 */
+	public boolean addTime(int milHours, boolean onHour) {
+		if (milHours < 0 || milHours > 23) {
+			return false;
+		}
+		
+		int timeIndex = milHours * 2;
+		if (!onHour) {
+			timeIndex++;
+		}
+		
+		// check if time already exists
+		if (timeSlots[timeIndex]) {
+			return false;
+		}
+		
+		timeSlots[timeIndex] = true;
+		return true;
+	}
+	
+	/*
+	 * Returns whether or not timeString formatted as specified
+	 */
+	public static boolean isTimeStringValid(String timeString, boolean milTime) {
+		String timeFormat;
+		SimpleDateFormat format;
+		
+		if (milTime) {
+			timeFormat = militaryTimeFormat;
+		} else {
+			timeFormat = civilianTimeFormat;
+		}
+		
+		try {
+			format = new SimpleDateFormat(timeFormat);
+			format.setLenient(false);
+			format.parse(timeString);
+		} catch(Exception e) {
+			return false;
+		}
+		
+		return true;
+	}
+	
+	public boolean addTimeString(String timeString, boolean milTime) {
+		Date tempDate;
+		SimpleDateFormat format;
+		String timeFormat;
+		
+		// Ensure timeString matches specified format
+		if (!isTimeStringValid(timeString, milTime)) {
+			return false;
+		}
+		
+		if (milTime) {
+			timeFormat = militaryTimeFormat;
+		} else {
+			timeFormat = civilianTimeFormat;
+		}
+		
+		// Parse date from string
+		try {
+			format = new SimpleDateFormat(timeFormat);
+			format.setLenient(false);
+			tempDate = format.parse(timeString);
+		} catch(Exception e) {
+			System.out.println("Time parsing failed.");
+			return false;
+		}
+		
+		// Extract hour and minute info (return false if time is not in 30 minute block)
+		int hour = tempDate.getHours();
+		int minute = tempDate.getMinutes();
+		boolean onHour;
+		if (minute == 0) {
+			onHour = true;
+		} else if (minute == 30) {
+			onHour = false;
+		} else {
+			return false;
+		}
+		
+		// Add time
+		return addTime(hour, onHour);
+	}
+	
+	public List<String> getTimeStrings(boolean useMil) {
+		List<String> timeList = new ArrayList<String>();
+		for (int i = 0; i < this.timeSlots.length; i++) {
+			if (timeSlots[i]) {
+				timeList.add(slotIndexToString(i, useMil));
+			}
+		}
+		return timeList;
+	}
+	
+	public static String slotIndexToString(int index, boolean useMil) {
+		
+		String timeFormat;
+		
+		if (useMil) {
+			timeFormat = militaryTimeFormat;
+		} else {
+			timeFormat = civilianTimeFormat;
+		}
+		
+		if (index < 0 || index > 47) {
+			return "ERROR: invalid index passed to slotIndexToString(...)";
+		}
+		
+		Date tempDate = new Date();
+		tempDate.setHours(index / 2);
+		if (index % 2 == 0) {
+			tempDate.setMinutes(0);
+		} else {
+			tempDate.setMinutes(30);
+		}
+		
+		return new SimpleDateFormat(timeFormat).format(tempDate);
+	}
+	
+	public boolean[] getTimeSlots() {
+		return timeSlots;
+	}
+	
+	// TODO:
+	// - Handle case where input is not on half-hour
+	// - Document
+	public static void main(String[] args) {
+		String input = "12:30PM";
+		boolean inputMil = false;
+		boolean outputMil = false;
+		
+		Time t = new Time();
+		
+		System.out.println(t.addTimeString(input, inputMil));
+		
+		for (String timeString : t.getTimeStrings(outputMil)) {
+			System.out.println(timeString);
+		}
+		
+	}
+}

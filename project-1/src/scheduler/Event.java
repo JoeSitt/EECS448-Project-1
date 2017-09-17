@@ -102,7 +102,7 @@ public class Event implements Serializable {
 	
 	/*
 	 * Parse date from string. String is expected to follow passed date format.
-	 * Method will return null if format is not followed.
+	 * Method will return null if format is not followed or parsing is unsuccessful.
 	 */
 	public static Date parseDate(String dateString, String dateFormat) {
 		
@@ -123,6 +123,12 @@ public class Event implements Serializable {
 		
 		// date string must be valid
 		return date;
+	}
+	
+	public String getDescritpion(boolean useMil) {
+		String outStr = name;
+		// TODO(cmaxcy): run through attendees and add summary to string
+		return outStr;
 	}
 	
 	public List<Attendee> getAttendees() {

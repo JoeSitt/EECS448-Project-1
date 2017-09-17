@@ -1,0 +1,9 @@
+package scheduler;
+
+public class Tester {
+	
+	@Test
+    void myFirstTest() {
+        assertEquals(2, 1 + 1);
+    }
+}

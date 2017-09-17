@@ -1,0 +1,13 @@
+package scheduler;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+public class Tester {
+	
+	@Test
+    void myFirstTest() {
+        assertEquals(2, 1 + 1);
+    }
+}

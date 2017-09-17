@@ -1,0 +1,39 @@
+package scheduler;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class TimeTest {
+
+	@Test
+	public void testIsTimeStringValid() {
+		
+		String goodMilInput = "1:30";
+		String goodCivInput = "1:30PM";
+		
+		String badMilInput = "111:30";
+		String badCivInput = "1:30PAM";
+		
+		assertTrue(Time.isTimeStringValid(goodMilInput, true));
+		
+		
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testAddTimeString() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetTimeStrings() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testTimeToString() {
+		fail("Not yet implemented");
+	}
+
+}
