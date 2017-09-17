@@ -15,7 +15,7 @@ public class ManagerTest {
 	@Test
 	public void testAddEvent() {
 		
-		Event testEvent = Event.makeEvent(new Date(), "Test Event");
+		Event testEvent = new Event(new Date(), "Test Event");
 		Manager testManager = Manager.makeManager("");
 		
 		// Test that new event is successfully added
@@ -44,13 +44,13 @@ public class ManagerTest {
 		
 		// Test an event can be correctly deleted
 		Manager m = Manager.makeManager("");
-		m.addEvent(Event.makeEvent(new Date(), "Party"));
+		m.addEvent(new Event(null, "Party"));
 		assertTrue(m.deleteEvent("Party"));
 		assertEquals(m.getEvents().size(), 0);
 		
 		// Test that the attempted delete of an event not in the manager is unsuccessful
 		m = Manager.makeManager("");
-		m.addEvent(Event.makeEvent(new Date(), "Party"));
+		m.addEvent(new Event(null, "Party"));
 		assertFalse(m.deleteEvent("Event name not in manager"));
 		assertEquals(m.getEvents().size(), 1);
 	}
@@ -60,7 +60,7 @@ public class ManagerTest {
 //		String realFileName = "new.txt";
 //		Manager testManager = Manager.makeManager(realFileName);
 //		
-//		Event testEvent = Event.makeEvent(Event.parseDateString("01/02/2017"), "Myvent");
+//		Event testEvent = new Event(Event.parseDateString("01/02/2017"), "Myvent");
 //		User testUser = new User("Larry");
 //		Time t1 = Time.makeTime(0, true);
 //		

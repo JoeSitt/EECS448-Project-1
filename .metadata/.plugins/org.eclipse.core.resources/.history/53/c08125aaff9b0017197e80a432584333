@@ -44,13 +44,13 @@ public class ManagerTest {
 		
 		// Test an event can be correctly deleted
 		Manager m = Manager.makeManager("");
-		m.addEvent(Event.makeEvent(new Date(), "Party"));
+		m.addEvent(Event.makeEvent(null, "Party"));
 		assertTrue(m.deleteEvent("Party"));
 		assertEquals(m.getEvents().size(), 0);
 		
 		// Test that the attempted delete of an event not in the manager is unsuccessful
 		m = Manager.makeManager("");
-		m.addEvent(Event.makeEvent(new Date(), "Party"));
+		m.addEvent(Event.makeEvent(null, "Party"));
 		assertFalse(m.deleteEvent("Event name not in manager"));
 		assertEquals(m.getEvents().size(), 1);
 	}

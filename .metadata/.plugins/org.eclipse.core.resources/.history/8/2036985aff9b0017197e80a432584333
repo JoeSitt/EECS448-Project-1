@@ -37,6 +37,7 @@ public class Event implements Serializable, Comparable<Event> {
 		if (date == null) {
 			return null;
 		}
+		
 		return new Event(date, name);
 	}
 	

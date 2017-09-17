@@ -31,12 +31,13 @@ public class Event implements Serializable, Comparable<Event> {
 	 * 
 	 * @param date Date of the event.
 	 * @param name Name of the event.
-	 * @return Constructed Event only if date passed is not null.
+	 * @return Constrcuted Event only if date passed is not null.
 	 */
 	public static Event makeEvent(Date date, String name) {
 		if (date == null) {
 			return null;
 		}
+		
 		return new Event(date, name);
 	}
 	

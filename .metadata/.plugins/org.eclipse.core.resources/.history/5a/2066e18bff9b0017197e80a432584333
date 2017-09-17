@@ -40,7 +40,7 @@ public class Manager implements Serializable {
 	 * @return True only if Event was successfully deleted.
 	 */
 	public boolean deleteEvent(String eventName) {
-		Event key = Event.makeEvent(new Date(), eventName);
+		Event key = new Event(null, eventName);
 		if (!events.contains(key)) {
 			return false;
 		}

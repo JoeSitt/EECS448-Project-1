@@ -15,7 +15,7 @@ public class EventTest {
 	 */
 	@Test
 	public void testGetName() {
-		Event e = Event.makeEvent(new Date(), "Test Event Name");
+		Event e = new Event(new Date(), "Test Event Name");
 		assertEquals(e.getName(), "Test Event Name");
 	}
 	
@@ -24,7 +24,7 @@ public class EventTest {
 	 */
 	@Test
 	public void testAddUser() {
-		Event e = Event.makeEvent(new Date(), "");
+		Event e = new Event(new Date(), "");
 		User user = new User("");
 		user.addTime(Time.makeTime(9, true));
 		
@@ -45,7 +45,7 @@ public class EventTest {
 		User[] expectedUserArray = {u1};
 		List<User> expectedUsers = Arrays.asList(expectedUserArray);
 		
-		Event testEvent= Event.makeEvent(new Date(), "");
+		Event testEvent= new Event(new Date(), "");
 		testEvent.addUser(u1);
 		
 		assertEquals(testEvent.getUsers(), expectedUsers);
@@ -61,7 +61,7 @@ public class EventTest {
 		testDate.setDate(5);
 		testDate.setYear(114);
 		
-		Event testEvent = Event.makeEvent(testDate, "");
+		Event testEvent = new Event(testDate, "");
 		
 		assertEquals(testEvent.getDateString(), "02/05/2014");
 	}
@@ -94,7 +94,7 @@ public class EventTest {
 		String dateString = "02/05/2014";
 		
 		Date testDate = Event.parseDateString(dateString);
-		Event testEvent = Event.makeEvent(testDate, "");
+		Event testEvent = new Event(testDate, "");
 		
 		assertEquals(testEvent.getDateString(), dateString);
 	}
@@ -121,14 +121,14 @@ public class EventTest {
 	 */
 	@Test
 	public void testCompareTo() {
-		Event lowEvent = Event.makeEvent(new Date(), "A");
-		Event highEvent = Event.makeEvent(new Date(), "Z");
+		Event lowEvent = new Event(new Date(), "A");
+		Event highEvent = new Event(new Date(), "Z");
 		
 		assertEquals(lowEvent.compareTo(highEvent), -25);
 		assertEquals(highEvent.compareTo(lowEvent), 25);
 		
-		Event equalEvent1 = Event.makeEvent(new Date(), "J");
-		Event equalEvent2 = Event.makeEvent(new Date(), "J");
+		Event equalEvent1 = new Event(new Date(), "J");
+		Event equalEvent2 = new Event(new Date(), "J");
 		
 		assertEquals(equalEvent1.compareTo(equalEvent1), 0);
 		assertEquals(equalEvent2.compareTo(equalEvent2), 0);

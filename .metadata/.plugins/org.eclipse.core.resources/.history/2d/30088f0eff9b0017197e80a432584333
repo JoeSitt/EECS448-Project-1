@@ -26,27 +26,7 @@ public class Event implements Serializable, Comparable<Event> {
 	// Required for serialization
 	private static final long serialVersionUID = 1L;
 	
-	/**
-	 * Factory constructor for Event.
-	 * 
-	 * @param date Date of the event.
-	 * @param name Name of the event.
-	 * @return Constructed Event only if date passed is not null.
-	 */
-	public static Event makeEvent(Date date, String name) {
-		if (date == null) {
-			return null;
-		}
-		return new Event(date, name);
-	}
-	
-	/**
-	 * Internal event constructor.
-	 * 
-	 * @param date Date of event. Assumed to not be null.
-	 * @param name Name of the event
-	 */
-	private Event(Date date, String name) {
+	public Event(Date date, String name) {
 		this.date = date;
 		this.name = name;
 		this.users = new TreeSet<User>();
