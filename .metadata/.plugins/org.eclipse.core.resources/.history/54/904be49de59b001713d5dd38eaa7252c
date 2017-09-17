@@ -1,0 +1,124 @@
+package scheduler;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.TreeSet;
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
+
+/**
+ * Encapsulates an Event. Contains methods for extracting date from string input. 
+ * Date format is strictly "MM/dd/yyyy"
+ * 
+ * References:
+ * https://stackoverflow.com/questions/999172/how-to-parse-a-date
+ * https://docs.oracle.com/javase/8/docs/api/java/util/Date.html
+ */
+public class Event implements Serializable {
+	
+	private Date date;
+	private String name;
+	private TreeSet<User> users;
+	
+	public static String dateFormat = "MM/dd/yyyy";
+	
+	// Required for serialization
+	private static final long serialVersionUID = 1L;
+	
+	public Event(Date date, String name) {
+		this.date = date;
+		this.name = name;
+		this.users = new TreeSet<User>();
+	}
+	
+	/**
+	 * Add user to event. User names must be distinct
+	 * 
+	 * @param user New user
+	 * @return True only if new user was successfully added.
+	 */
+	public boolean addUser(User user) {
+		if (users.contains(user)) {
+			return false;
+		}
+		users.add(user);
+		return true;
+	}
+	
+	/**
+	 * @return Event name.
+	 */
+	public String getName() {
+		return name;
+	}
+	
+	/**
+	 * @return List of users.
+	 */
+	public List<User> getUsers() {
+		return new ArrayList<User>(users);
+	}
+	
+	/**
+	 * Describes date using specific format.
+	 * @param date Date to be formatted.
+	 * @return String representation of the date, error string if date is null.
+	 */
+	public static String formatDate(Date date) {
+		if (date == null) {
+			return "ERROR: null date encountered";
+		}
+		return new SimpleDateFormat(dateFormat).format(date);
+	}
+	
+	/**
+	 * @return Formatted date string.
+	 */
+	public String getDateString() {		
+		return formatDate(date);
+	}
+	
+	/**
+	 * Signals whether passed date string is correctly formatted and refers to a real date.
+	 * 
+	 * @param dateString String representation of the date.
+	 * @return True only if date string is formatted correctly and date exists.
+	 */
+	public static boolean isDateStringValid(String dateString) {
+		try {
+			SimpleDateFormat format = new SimpleDateFormat(dateFormat);
+			format.setLenient(false);
+			format.parse(dateString);
+		} catch(Exception e) {
+			return false;
+		}
+		return true;
+	}
+	
+	/**
+	 * Parses date from formatted string.
+	 * 
+	 * @param dateString String representation of date.
+	 * @return Date only if parsing is successful and date exists.
+	 */
+	public static Date parseDateString(String dateString) {
+		Date date;
+		try {
+			SimpleDateFormat format = new SimpleDateFormat(dateFormat);
+			format.setLenient(false);
+			date = format.parse(dateString);
+		} catch(Exception e) {
+			return null;
+		}
+		return date;
+	}
+	
+	/**
+	 * @param otherUser The user to be compared to
+	 * @returns Lexicographic comparison of users' names
+	 */
+	public int compareTo(Event otherEvent) {
+		return this.name.compareTo(otherEvent.name);
+	}
+}

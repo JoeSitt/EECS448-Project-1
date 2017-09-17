@@ -32,18 +32,18 @@ public class Manager implements Serializable {
 		events.add(event);
 	}
 	
-	public static void main(String[] args) throws IOException, ClassNotFoundException {
-		Manager mrM = new Manager();
-		Event event = new Event(new Date(), "Johhny");
-		
-		mrM.addEvent(event);
-		
-		mrM.write("SampleClass-test.txt");
-		
-		Manager newOne = Manager.read("SampleClass-test.txt");
-		
-		System.out.println(newOne.getEvents().get(0).getName());
-	}
+//	public static void main(String[] args) throws IOException, ClassNotFoundException {
+//		Manager mrM = new Manager();
+//		Event event = new Event(new Date(), "Johhny");
+//		
+//		mrM.addEvent(event);
+//		
+//		mrM.write("SampleClass-test.txt");
+//		
+//		Manager newOne = Manager.read("SampleClass-test.txt");
+//		
+//		System.out.println(newOne.getEvents().get(0).getName());
+//	}
 	
 	/*
 	 * Writes instance to supplied file

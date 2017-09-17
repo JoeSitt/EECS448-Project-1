@@ -9,7 +9,7 @@ import java.util.TreeSet;
  * 
  * Includes their name and which half-hour time slots in the day are to be associated with them.
  */
-public class User {
+public class User implements Comparable<User> {
 	
 	private String name;
 	private TreeSet<Time> timeSlots;
@@ -62,5 +62,13 @@ public class User {
 			timeStrings.add(t.getTimeString(useMil));
 		}
 		return timeStrings;
+	}
+	
+	/**
+	 * @param otherUser The user to be compared to
+	 * @returns Lexicographic comparison of users' names
+	 */
+	public int compareTo(User otherUser) {
+		return this.name.compareTo(otherUser.name);
 	}
 }

@@ -1,0 +1,111 @@
+package scheduler;
+
+import static org.junit.Assert.*;
+
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+
+import org.junit.Test;
+
+public class EventTest {
+
+	/**
+	 * Verify that Event name can be correctly set.
+	 */
+	@Test
+	public void testGetName() {
+		Event e = new Event(new Date(), "Test Event Name");
+		assertEquals(e.getName(), "Test Event Name");
+	}
+	
+	/**
+	 * Tests behavior of user addition.
+	 */
+	@Test
+	public void testAddUser() {
+		Event e = new Event(new Date(), "");
+		User user = new User("");
+		user.addTime(Time.makeTime(9, true));
+		
+		// New user should be successfully added
+		assertTrue(e.addUser(user));
+		
+		// Already existing user should not be able to be added
+		assertFalse(e.addUser(user));
+	}
+
+	/**
+	 * Tests that user list can be correctly extracted
+	 */
+	@Test
+	public void testGetUsers() {		
+		User u1 = new User("John");
+		
+		User[] expectedUserArray = {u1};
+		List<User> expectedUsers = Arrays.asList(expectedUserArray);
+		
+		Event testEvent= new Event(new Date(), "");
+		testEvent.addUser(u1);
+		
+		assertEquals(testEvent.getUsers(), expectedUsers);
+	}
+
+	/**
+	 * Test that event's date can be accurately represented as a string.
+	 */
+	@Test
+	public void testGetDateString() {
+		Date testDate = new Date();
+		testDate.setMonth(1);
+		testDate.setDate(5);
+		testDate.setYear(114);
+		
+		Event testEvent = new Event(testDate, "");
+		
+		assertEquals(testEvent.getDateString(), "02/05/2014");
+	}
+
+	/**
+	 * Test that date string can be verification is accurate.
+	 */
+	@Test
+	public void testIsDateStringValid() {
+		
+		// Test on correctly formatted real date
+		assertTrue(Event.isDateStringValid("02/05/2014"));
+		
+		// Test on correctly formatted fake date
+		assertFalse(Event.isDateStringValid("02/30/2014"));
+		
+		// Test on incorrectly formatted dates
+		assertFalse(Event.isDateStringValid("sd"));
+		assertFalse(Event.isDateStringValid(""));
+		assertFalse(Event.isDateStringValid("02/05"));
+		assertFalse(Event.isDateStringValid("02/2014"));
+		assertFalse(Event.isDateStringValid("2014"));
+	}
+
+	/**
+	 * Test behavior of date parsing.
+	 */
+	@Test
+	public void testParseDateString() {
+		
+	}
+	
+	/**
+	 * Tests behavior of date formatting.
+	 */
+	@Test
+	public void testFormatDate() {
+		
+		Date date = new Date();
+		date.setMonth(0);
+		date.setDate(1);
+		date.setYear(0);
+		
+		assertEquals(Event.formatDate(date), "01/01/1900");
+	}
+
+}

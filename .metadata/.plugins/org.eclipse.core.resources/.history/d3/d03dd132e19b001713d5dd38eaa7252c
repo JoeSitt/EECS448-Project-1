@@ -1,0 +1,73 @@
+package scheduler;
+
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.Test;
+
+public class UserTest {
+
+	/**
+	 * Verify that user's name can be correctly specified and retrieved.
+	 */
+	@Test
+	public void testGetName() {
+		
+		User testUser = new User("test");
+		assertEquals(testUser.getName(), "test");
+		
+		testUser = new User("Test Name");
+		assertEquals(testUser.getName(), "Test Name");
+	}
+
+	/**
+	 * Verify that user time addition is performed correctly.
+	 */
+	@Test
+	public void testAddTime() {
+		
+		// Test that new time can be added
+		User testUser = new User("");
+		Time testTime = Time.makeTime(9, true);
+		assertTrue(testUser.addTime(testTime));
+		
+		// Test that existing time can NOT be added
+		assertFalse(testUser.addTime(testTime));
+		
+		// Test that a null time can NOT be added
+		assertFalse(testUser.addTime(null));
+	}
+
+	/**
+	 * Test that time list can be correctly generated.
+	 */
+	@Test
+	public void testGetSlotTimeStrings() {
+		String[] expectedTimeStringArray = {"10:30AM"};
+		List<String> expectedTimeStrings = Arrays.asList(expectedTimeStringArray);
+		Time t1 = Time.makeTime(10, false);
+		User testUser = new User("");
+		testUser.addTime(t1);
+		assertEquals(testUser.getSlotTimeStrings(false), expectedTimeStrings);
+	}
+	
+	@Test
+	public void testCompareTo() {
+		User lowUser = new User("A");
+		User highUser = new User("Z");
+		
+		assertEquals(lowUser.compareTo(highUser), -25);
+		assertEquals(highUser.compareTo(lowUser), 25);
+		
+		User equalUser1 = new User("J");
+		User equalUser2 = new User("J");
+		
+		assertEquals(equalUser1.compareTo(equalUser1), 0);
+		assertEquals(equalUser2.compareTo(equalUser2), 0);
+		assertEquals(equalUser1.compareTo(equalUser2), 0);
+		assertEquals(equalUser2.compareTo(equalUser1), 0);
+	}
+}

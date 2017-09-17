@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="EventTest" project="project-1" tests="5" started="5" failures="0" errors="0" ignored="0">
+  <testsuite name="scheduler.EventTest" time="0.018">
+    <testcase name="testGetUsers" classname="scheduler.EventTest" time="0.003"/>
+    <testcase name="testAddUser" classname="scheduler.EventTest" time="0.002"/>
+    <testcase name="testGetName" classname="scheduler.EventTest" time="0.0"/>
+    <testcase name="testIsDateStringValid" classname="scheduler.EventTest" time="0.013"/>
+    <testcase name="testGetDateString" classname="scheduler.EventTest" time="0.0"/>
+  </testsuite>
+</testrun>

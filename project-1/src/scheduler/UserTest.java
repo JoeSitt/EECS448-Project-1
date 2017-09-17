@@ -53,4 +53,24 @@ public class UserTest {
 		testUser.addTime(t1);
 		assertEquals(testUser.getSlotTimeStrings(false), expectedTimeStrings);
 	}
+	
+	/**
+	 * Test that user comparison is done correctly.
+	 */
+	@Test
+	public void testCompareTo() {
+		User lowUser = new User("A");
+		User highUser = new User("Z");
+		
+		assertEquals(lowUser.compareTo(highUser), -25);
+		assertEquals(highUser.compareTo(lowUser), 25);
+		
+		User equalUser1 = new User("J");
+		User equalUser2 = new User("J");
+		
+		assertEquals(equalUser1.compareTo(equalUser1), 0);
+		assertEquals(equalUser2.compareTo(equalUser2), 0);
+		assertEquals(equalUser1.compareTo(equalUser2), 0);
+		assertEquals(equalUser2.compareTo(equalUser1), 0);
+	}
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="UserTest" project="project-1" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="scheduler.UserTest" time="0.015">
+    <testcase name="testAddTime" classname="scheduler.UserTest" time="0.001"/>
+    <testcase name="testCompareTo" classname="scheduler.UserTest" time="0.0"/>
+    <testcase name="testGetName" classname="scheduler.UserTest" time="0.001"/>
+    <testcase name="testGetSlotTimeStrings" classname="scheduler.UserTest" time="0.013"/>
+  </testsuite>
+</testrun>
