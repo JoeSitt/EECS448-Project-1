@@ -1,0 +1,36 @@
+package scheduler;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class UserTest {
+
+	/**
+	 * Verify that user's name can be correctly specified and retrieved.
+	 */
+	@Test
+	public void testGetName() {
+		User testUser = new User("test");
+		assertEquals(testUser.getName(), "test");
+		
+		testUser = new User("Test Name");
+		assertEquals(testUser.getName(), "Test Name");
+	}
+
+	@Test
+	public void testAddTime() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetSlotTimeStrings() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetSlotTimes() {
+		fail("Not yet implemented");
+	}
+
+}

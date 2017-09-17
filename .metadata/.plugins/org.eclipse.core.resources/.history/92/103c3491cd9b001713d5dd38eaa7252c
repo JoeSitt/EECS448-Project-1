@@ -1,0 +1,12 @@
+package scheduler;
+
+public class NewTime {
+	
+	private int milHours;
+	private boolean onHour;
+	
+	public static NewTime makeTime(int milHours, boolean onHour) {
+		
+	}
+
+}

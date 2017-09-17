@@ -2,12 +2,14 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="onHour" key="selection"/>
+		<item value="milTime" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="useMil"/>
+			<item value="setLenient"/>
 			<item value="onHour"/>
 			<item value="getTimeEasy"/>
 			<item value="date"/>
@@ -16,6 +18,7 @@
 			<item value="ui"/>
 		</list>
 		<list key="replacehistory">
+			<item value="milTime"/>
 			<item value="makeTime"/>
 			<item value="attendees"/>
 		</list>
@@ -23,7 +26,7 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="312" key="DIALOG_WIDTH"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-		<item value="433" key="DIALOG_HEIGHT"/>
+		<item value="434" key="DIALOG_HEIGHT"/>
 		<item value="804" key="DIALOG_X_ORIGIN"/>
 		<item value="300" key="DIALOG_Y_ORIGIN"/>
 	</section>

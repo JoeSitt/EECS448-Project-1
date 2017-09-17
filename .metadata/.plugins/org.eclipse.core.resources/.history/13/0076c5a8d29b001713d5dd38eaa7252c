@@ -1,0 +1,49 @@
+package scheduler;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class TimeTest {
+
+	/**
+	 * Verify that time string is correctly formed.
+	 */
+	@Test
+	public void testGetTimeString() {
+		Time t = Time.makeTime(0, true);
+		assertEquals(t.getTimeString(true), "00:00");
+		assertEquals(t.getTimeString(false), "12:00AM");
+	}
+
+	/**
+	 * Verify that time string is correctly formed.
+	 */
+	@Test
+	public void testMakeTime() {
+		
+		// Verify that proper Time can be generated
+		assertNotNull(Time.makeTime(12, true));
+		
+		assertNull(Time.makeTime(-1, true));
+		assertNull(Time.makeTime(24, true));
+		assertNull(Time.makeTime(-1, false));
+		assertNull(Time.makeTime(24, false));
+	}
+
+//	@Test
+//	public void testIsTimeStringValid() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testParseTime() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testCompareTo() {
+//		fail("Not yet implemented");
+//	}
+
+}

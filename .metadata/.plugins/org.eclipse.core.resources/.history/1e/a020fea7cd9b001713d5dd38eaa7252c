@@ -1,0 +1,15 @@
+package scheduler;
+
+public class NewTime {
+	
+	private int milHours;
+	private boolean onHour;
+	
+	public static NewTime makeTime(int milHours, boolean onHour) {
+		if (milHours < 0 || milHours > 23) {
+			return null;
+		}
+		return new NewTime(milHours, onHour);
+	}
+
+}

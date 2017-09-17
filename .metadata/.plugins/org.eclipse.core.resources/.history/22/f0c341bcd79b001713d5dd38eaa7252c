@@ -1,0 +1,182 @@
+package scheduler;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+// TODO:
+// - Consider changing references to time to Time
+
+/**
+ * Representation of one of the 48 half-hours in a day.
+ */
+public class Time implements Comparable<Time> {
+	
+	private int milHours;
+	private boolean onHour;
+	
+	public static String militaryTimeFormat = "HH:mm";
+	public static String civilianTimeFormat = "hh:mmaa";
+	
+	/**
+	 * Internal time constructor.
+	 * 
+	 * @param milHours Military time hours. Assumed to be valid.
+	 * @param onHour If true, time is on hour. If false, time is on half-hour
+	 * 				 Example: 11:30AM is on the half-hour so onHour would be false.
+	 */
+	private Time(int milHours, boolean onHour) {
+		this.milHours = milHours;
+		this.onHour = onHour;
+	}
+	
+	/**
+	 * Produces time representation.
+	 * 
+	 * @param milTime Determines whether to use military or civilian time representation.
+	 * @return String representation of time.
+	 */
+	public String getTimeString(boolean milTime) {
+		
+		String timeFormat;
+		
+		if (milTime) {
+			timeFormat = militaryTimeFormat;
+		} else {
+			timeFormat = civilianTimeFormat;
+		}
+		
+		Date tempDate = new Date();
+		tempDate.setHours(this.milHours);
+		if (this.onHour) {
+			tempDate.setMinutes(0);
+		} else {
+			tempDate.setMinutes(30);
+		}
+		
+		return new SimpleDateFormat(timeFormat).format(tempDate);
+	}
+	
+	/**
+	 * Factory method for producing a time.
+	 * 
+	 * @param milHours Hour represented (in military time)
+	 * @param onHour Whether time is on hour (as opposed to half-hour)
+	 * @return The constructed Time if hour is valid, else null.
+	 */
+	public static Time makeTime(int milHours, boolean onHour) {
+		if (milHours < 0 || milHours > 23) {
+			return null;
+		}
+		return new Time(milHours, onHour);
+	}
+	
+	/**
+	 * Determines if time string is correctly formatted.
+	 * 
+	 * NOTE: Parsing of string is done only until time format has
+	 * been met. This means that it may appear to accept odd times.
+	 * For example even if military time is specified, an input like "23:30PM"
+	 * will be accepted as the time is grabbed and "PM" ignored.
+	 * 
+	 * @param timeString String representation of the time following specified format.
+	 * @param milTime Determines which time format to parse for.
+	 * @return Whether or not time string was correctly formatted.
+	 */
+	public static boolean isTimeStringValid(String timeString, boolean milTime) {
+		Date tempDate;
+		String timeFormat;
+		SimpleDateFormat format;
+		
+		if (milTime) {
+			timeFormat = militaryTimeFormat;
+		} else {
+			timeFormat = civilianTimeFormat;
+		}
+		
+		// Detect if format is correct
+		try {
+			format = new SimpleDateFormat(timeFormat);
+			format.setLenient(false);
+			tempDate = format.parse(timeString);
+		} catch(Exception e) {
+			return false;
+		}
+		
+		// Detect if time block is correct
+		int minutes = tempDate.getMinutes();
+		if (minutes != 0 && minutes != 30) {
+			return false;
+		}
+		
+		return true;
+	}
+	
+	/**
+	 * Parses time from string.
+	 * 
+	 * NOTE: Parsing of string is done only until time format has
+	 * been met. This means that it may appear to accept odd times.
+	 * For example even if military time is specified, an input like "23:30PM"
+	 * will be accepted as the time is grabbed and "PM" ignored.
+	 * 
+	 * @param timeString String representation of the time following specified format.
+	 * @param milTime Determines which time format to parse for.
+	 * @return The constructed Time if format was correct, else null.
+	 */
+	public static Time parseTime(String timeString, boolean milTime) {
+		Date tempDate;
+		SimpleDateFormat format;
+		String timeFormat;
+		
+		if (milTime) {
+			timeFormat = militaryTimeFormat;
+		} else {
+			timeFormat = civilianTimeFormat;
+		}
+		
+		// Parse time from string
+		try {
+			format = new SimpleDateFormat(timeFormat);
+			format.setLenient(false);
+			tempDate = format.parse(timeString);
+		} catch(Exception e) {
+			return null;
+		}
+		
+		// Extract hour and minute info (return false if time is not in 30 minute block)
+		int hour = tempDate.getHours();
+		int minute = tempDate.getMinutes();
+		boolean onHour;
+		if (minute == 0) {
+			onHour = true;
+		} else if (minute == 30) {
+			onHour = false;
+		} else {
+			return null;
+		}
+		
+		// Add time
+		return new Time(hour, onHour);
+	}
+	
+	public int compareTo(Time nt) {
+		if (this == null || nt == null) {
+			System.out.println("ERROR: null Time comparison");
+			return 0;
+		}
+		
+		if (this.milHours > nt.milHours) {
+			return 1;
+		} else if (this.milHours < nt.milHours) {
+			return -1;
+		} else {
+			if (!this.onHour && nt.onHour) {
+				return 1;
+			} else if (this.onHour && !nt.onHour) {
+				return -1;
+			} else {
+				return 0;
+			}
+		}
+	}
+}

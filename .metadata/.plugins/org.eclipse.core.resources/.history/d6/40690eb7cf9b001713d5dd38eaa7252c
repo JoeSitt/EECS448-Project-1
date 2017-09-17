@@ -1,0 +1,142 @@
+package scheduler;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class NewTime implements Comparable<NewTime> {
+	
+	private int milHours;
+	private boolean onHour;
+	
+	public static String militaryTimeFormat = "HH:mm";
+	public static String civilianTimeFormat = "hh:mmaa";
+	
+	private NewTime(int milHours, boolean onHour) {
+		this.milHours = milHours;
+		this.onHour = onHour;
+	}
+	
+	public String getTimeString(boolean milTime) {
+		
+		String timeFormat;
+		
+		if (milTime) {
+			timeFormat = militaryTimeFormat;
+		} else {
+			timeFormat = civilianTimeFormat;
+		}
+		
+		Date tempDate = new Date();
+		tempDate.setHours(this.milHours);
+		if (this.onHour) {
+			tempDate.setMinutes(0);
+		} else {
+			tempDate.setMinutes(30);
+		}
+		
+		return new SimpleDateFormat(timeFormat).format(tempDate);
+	}
+	
+	public static NewTime makeTime(int milHours, boolean onHour) {
+		if (milHours < 0 || milHours > 23) {
+			return null;
+		}
+		return new NewTime(milHours, onHour);
+	}
+	
+	/*
+	 * Returns whether or not timeString formatted as specified.
+	 * 
+	 * NOTE: Parsing is if string is done only until time format has
+	 * been met. This means that it may appear to accept odd times.
+	 * For example even if military time is specified, an input like "23:30PM"
+	 * will be accepted as the time is grabbed and "PM" ignored.
+	 */
+	public static boolean isTimeStringValid(String timeString, boolean milTime) {
+		Date tempDate;
+		String timeFormat;
+		SimpleDateFormat format;
+		
+		if (milTime) {
+			timeFormat = militaryTimeFormat;
+		} else {
+			timeFormat = civilianTimeFormat;
+		}
+		
+		// Detect if format is correct
+		try {
+			format = new SimpleDateFormat(timeFormat);
+			format.setLenient(false);
+			tempDate = format.parse(timeString);
+		} catch(Exception e) {
+			return false;
+		}
+		
+		// Detect if time block is correct
+		int minutes = tempDate.getMinutes();
+		if (minutes != 0 && minutes != 30) {
+			return false;
+		}
+		
+		return true;
+	}
+	
+	/*
+	 * Converts timeString to usable time slots and adds it.
+	 * True indicates that timeString was correctly added.
+	 * False indicates that timeString was incorrectly parsed or
+	 * did not refer to a time on the half-hour.
+	 * 
+	 * NOTE: Parsing is if string is done only until time format has
+	 * been met. This means that it may appear to accept odd times.
+	 * For example even if military time is specified, an input like "23:30PM"
+	 * will be accepted as the time is grabbed and "PM" ignored.
+	 */
+	// TODO: update documentation
+	public NewTime parseTime(String timeString, boolean milTime) {
+		Date tempDate;
+		SimpleDateFormat format;
+		String timeFormat;
+		
+		if (milTime) {
+			timeFormat = militaryTimeFormat;
+		} else {
+			timeFormat = civilianTimeFormat;
+		}
+		
+		// Parse time from string
+		try {
+			format = new SimpleDateFormat(timeFormat);
+			format.setLenient(false);
+			tempDate = format.parse(timeString);
+		} catch(Exception e) {
+			return null;
+		}
+		
+		// Extract hour and minute info (return false if time is not in 30 minute block)
+		int hour = tempDate.getHours();
+		int minute = tempDate.getMinutes();
+		boolean onHour;
+		if (minute == 0) {
+			onHour = true;
+		} else if (minute == 30) {
+			onHour = false;
+		} else {
+			return null;
+		}
+		
+		// Add time
+		return new NewTime(hour, onHour);
+	}
+	
+	public int compareTo(NewTime nt) {
+		return -1;  // TEMP
+	}
+	
+	public static void main(String[] args) {
+		NewTime nt = NewTime.makeTime(23, false);
+		
+		System.out.println(nt.getTimeString(true));
+	}
+
+}

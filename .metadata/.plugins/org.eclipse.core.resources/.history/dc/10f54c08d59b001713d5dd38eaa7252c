@@ -1,0 +1,58 @@
+package scheduler;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.TreeSet;
+
+public class User {
+	
+	private String name;
+	private TreeSet<Time> timeSlots;
+	
+	public User(String name) {
+		this.name = name;
+		timeSlots = new TreeSet<Time>();
+	}
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public boolean addTime(Time nt) {
+		
+		if (timeSlots.contains(nt)) {
+			return false;
+		}
+		
+		timeSlots.add(nt);
+		return true;
+	}
+	
+	public List<String> getSlotTimeStrings(boolean useMil) {
+		List<String> timeStrings = new ArrayList<String>();
+		for (Time t : timeSlots) {
+			timeStrings.add(t.getTimeString(useMil));
+		}
+		return timeStrings;
+	}
+	
+	public List<Time> getSlotTimes() {
+		return new ArrayList<Time>(this.timeSlots);
+	}
+	
+	public static User getFullUser() {
+		User outUser = new User("Larry");
+		for (int i = 0; i < 24; i++) {
+			outUser.addTime(Time.makeTime(i, false));
+			outUser.addTime(Time.makeTime(i, true));
+		}
+		return outUser;
+	}
+	
+	public static void main(String[] args) {
+		boolean useMil = false;
+		for (String s : getFullUser().getSlotTimeStrings(useMil)) {
+			System.out.println(s);
+		}
+	}
+}

@@ -1,0 +1,65 @@
+package scheduler;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class TimeTest {
+
+	/**
+	 * Verify that time string is correctly formed.
+	 */
+	@Test
+	public void testGetTimeString() {
+		Time t = Time.makeTime(0, true);
+		assertEquals(t.getTimeString(true), "00:00");
+		assertEquals(t.getTimeString(false), "12:00AM");
+	}
+
+	/**
+	 * Verify that time can be made from valid inputs, and
+	 * not made from invalid ones.
+	 */
+	@Test
+	public void testMakeTime() {
+		
+		// Verify that proper Time can be generated
+		assertNotNull(Time.makeTime(12, true));
+		
+		assertNull(Time.makeTime(-1, true));
+		assertNull(Time.makeTime(24, true));
+		assertNull(Time.makeTime(-1, false));
+		assertNull(Time.makeTime(24, false));
+	}
+
+	/**
+	 * Verify that military time and civilian times can be correctly verified,
+	 * and invalid inputs to both can be detected.
+	 */
+	@Test
+	public void testIsTimeStringValid() {
+		// Test valid inputs
+		assertTrue(Time.isTimeStringValid("00:00", true));
+		assertTrue(Time.isTimeStringValid("12:00AM", false));
+		
+		// Test obviously bad inputs
+		assertFalse(Time.isTimeStringValid("asd", true));
+		assertFalse(Time.isTimeStringValid("asd", false));
+		assertFalse(Time.isTimeStringValid("", true));
+		assertFalse(Time.isTimeStringValid("", false));
+		
+		// Test odd cases
+		assertFalse(Time.isTimeStringValid("13:30AM", false));
+	}
+
+//	@Test
+//	public void testParseTime() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testCompareTo() {
+//		fail("Not yet implemented");
+//	}
+
+}
