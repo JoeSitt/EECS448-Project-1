@@ -278,14 +278,11 @@ public class ui {
 	}
 	
 	/**
-	 * NOTE: When in 12 hour mode, entered strings of 4 or fewer characters will cause an array out of bounds exception.
-	 * 
 	 * @param me the user in question
 	 * @param myEvent the event being viewed
 	 * @param myscan a scanner for user inputs
 	 * @return
 	 */
-	// TODO: Fix array out of bounds exception on 12 hour mode input
 	public static Event eventViewer(User me, Event myEvent, Scanner myscan) {
 		String input="";
 		while(!input.equals("Esc")&&!input.equals("esc")&&!input.equals("ESC")&&!input.equals("Y")&&!input.equals("y")&&!input.equals("N")&&!input.equals("n")) {
@@ -314,16 +311,16 @@ public class ui {
 				{
 					
 				}else {
-				if(input.length()<5) {
-				char[] inputchar=input.toCharArray();
-				if(inputchar[2]!=':') {
-					inputchar[2]=':';
-				}
-				if(inputchar[4]!='0') {
-					inputchar[4]='0';
-				}
-				//if()
-				}
+//				if(input.length()<5) {
+//				char[] inputchar=input.toCharArray();
+//				if(inputchar[2]!=':') {
+//					inputchar[2]=':';
+//				}
+//				if(inputchar[4]!='0') {
+//					inputchar[4]='0';
+//				}
+//				//if()
+//				}
 				if(Time.isTimeStringValid(input,false)) {
 					me.addTime(Time.parseTime(input,false));
 				}else {
@@ -336,10 +333,10 @@ public class ui {
 				System.out.println("please input the time you want to have the event in format \"HH:MM\" with H=hour and M=min(can only be 00 or 30)");
 				input=myscan.nextLine();
 				if(!(input.equals("ESC")||input.equals("esc")||input.equals("Esc")||input.equals("Done")||input.equals("done")||input.equals("DONE"))) {
-				if(input.length()<5) {
-				char[] inputchar=input.toCharArray();
-				
-				}
+//				if(input.length()<5) {
+//				char[] inputchar=input.toCharArray();
+//				
+//				}
 				if(Time.isTimeStringValid(input,true)) {
 					me.addTime(Time.parseTime(input,true));
 					System.out.println("Time added");
@@ -385,14 +382,11 @@ public class ui {
 		System.out.println(outStr);
 	}
 	/**
-	 * NOTE: When in 12 hour mode, entered strings of 4 or fewer characters will cause an array out of bounds exception.
-	 * 
 	 * input: me, myscan
 	 * output: none or new event
 	 * modifies:event string or none,terminal
 	 * lets the User create events not finished
 	 */
-	// TODO: Fix array out of bounds exception on 12 hour mode input
 	public static void admin(User me,Scanner myscan) {
 		String menuoptions="============================================================================================\r\n" + 
 				"Input a code of what you want to do or follow the prompt to make an event\r\n" + 
@@ -469,16 +463,16 @@ public class ui {
 				{
 					
 				}else {
-				if(input.length()<5) {
-				char[] inputchar=input.toCharArray();
-				if(inputchar[2]!=':') {
-					inputchar[2]=':';
-				}
-				if(inputchar[4]!='0') {
-					inputchar[4]='0';
-				}
-				//if()
-				}
+//				if(input.length()<5) {
+//				char[] inputchar=input.toCharArray();
+//				if(inputchar[2]!=':') {
+//					inputchar[2]=':';
+//				}
+//				if(inputchar[4]!='0') {
+//					inputchar[4]='0';
+//				}
+//				//if()
+//				}
 				if(Time.isTimeStringValid(input,false)) {
 					me.addTime(Time.parseTime(input,false));
 				}else {
@@ -491,10 +485,10 @@ public class ui {
 				System.out.println("please input the time you want to have the event in format \"HH:MM\" with H=hour and M=min(can only be 00 or 30)");
 				input=myscan.nextLine();
 				if(!(input.equals("ESC")||input.equals("esc")||input.equals("Esc")||input.equals("Done")||input.equals("done")||input.equals("DONE"))) {
-				if(input.length()<5) {
-				char[] inputchar=input.toCharArray();
-				
-				}
+//				if(input.length()<5) {
+//				char[] inputchar=input.toCharArray();
+//				
+//				}
 				if(Time.isTimeStringValid(input,true)) {
 					me.addTime(Time.parseTime(input,true));
 					System.out.println("Time added");
