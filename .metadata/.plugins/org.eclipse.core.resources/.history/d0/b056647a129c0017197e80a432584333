@@ -10,6 +10,10 @@ import java.text.SimpleDateFormat;
 /**
  * Encapsulates an Event. Contains methods for extracting date from string input. 
  * Date format is strictly "MM/dd/yyyy"
+ * 
+ * References:
+ * https://stackoverflow.com/questions/999172/how-to-parse-a-date
+ * https://docs.oracle.com/javase/8/docs/api/java/util/Date.html
  */
 public class Event implements Serializable, Comparable<Event> {
 	

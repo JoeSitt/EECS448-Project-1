@@ -84,7 +84,7 @@ public class Manager implements Serializable {
 	};
 	
 	/**
-	 * Determines whether or not a file exists.
+	 * https://stackoverflow.com/questions/1816673/how-do-i-check-if-a-file-exists-in-java
 	 * 
 	 * @param fileName
 	 * @return Whether or not a file exists.

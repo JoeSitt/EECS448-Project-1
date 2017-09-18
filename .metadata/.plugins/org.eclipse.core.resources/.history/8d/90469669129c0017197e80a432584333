@@ -84,7 +84,7 @@ public class Manager implements Serializable {
 	};
 	
 	/**
-	 * Determines whether or not a file exists.
+	 * Detrmines wether or not a file exists.
 	 * 
 	 * @param fileName
 	 * @return Whether or not a file exists.
