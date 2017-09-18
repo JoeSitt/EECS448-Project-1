@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class ui {
 
 	public static String saveFile = "save.txt";
-	public static Manager daBoss = Manager.makeManager(saveFile);
+	public static Manager daBoss = Manager.makeManager(fileName);
 	public static int timeview=0;
 /*
  * input: none

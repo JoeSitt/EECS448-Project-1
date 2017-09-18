@@ -29,15 +29,6 @@ public class User implements Comparable<User>, Serializable {
 	}
 	
 	/**
-	 * Re-specify name.
-	 * 
-	 * @param name Desired new name.
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	/**
 	 * @return Name of user
 	 */
 	public String getName() {

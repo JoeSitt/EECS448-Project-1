@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
-		ui.start();
+//		ui.start();
 		
 //		List<String> posRes = new ArrayList<String>();
 //		posRes.add("Good");

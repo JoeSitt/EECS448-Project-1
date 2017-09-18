@@ -11,8 +11,7 @@ import java.util.Scanner;
 
 public class ui {
 
-	public static String saveFile = "save.txt";
-	public static Manager daBoss = Manager.makeManager(saveFile);
+	public static Manager daBoss= new Manager();
 	public static int timeview=0;
 /*
  * input: none
@@ -204,7 +203,7 @@ public class ui {
 			System.out.println("what would you like your new name to be?");
 			String name;
 			name=myscan.nextLine();
-			me.setName(name);
+			me.setname(name);
 			i=0;
 		}else if(input.equals("Time")||input.equals("TIME")||input.equals("time")) {
 			i=0;
@@ -329,8 +328,7 @@ public class ui {
 		//should also loop until correct input is received.
 		
 		//where i stopped-js
-//		Event myEvent=new Event(Date,name);
-		Event myEvent = Event.makeEvent(Date, name);
+		Event myEvent=new Event(Date,name);
 		
 		//String time;//could also be a list of strings or list of ints
 		/*boolean bsize=false;//bad size

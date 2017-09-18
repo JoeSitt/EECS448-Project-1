@@ -2,22 +2,23 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Event" key="selection"/>
+		<item value="stack" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="stack"/>
+			<item value="returns"/>
+			<item value="new Event"/>
 			<item value="User"/>
 			<item value=" e "/>
 			<item value="time"/>
 			<item value="nt"/>
 			<item value="NewTime"/>
-			<item value="useMil"/>
-			<item value="setLenient"/>
-			<item value="onHour"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Event.makeEvent"/>
 			<item value="Event"/>
 			<item value=" testEvent"/>
 			<item value="Time"/>
@@ -30,8 +31,8 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="312" key="DIALOG_WIDTH"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-		<item value="434" key="DIALOG_HEIGHT"/>
-		<item value="804" key="DIALOG_X_ORIGIN"/>
-		<item value="300" key="DIALOG_Y_ORIGIN"/>
+		<item value="435" key="DIALOG_HEIGHT"/>
+		<item value="960" key="DIALOG_X_ORIGIN"/>
+		<item value="314" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

@@ -8,15 +8,15 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
-		ui.start();
+//		ui.start();
 		
-//		List<String> posRes = new ArrayList<String>();
-//		posRes.add("Good");
-//		posRes.add("Dandy");
-//		
-//		String response = getResponse("How are you?: ", posRes, System.in);
-//		
-//		System.out.println(response);
+		List<String> posRes = new ArrayList<String>();
+		posRes.add("Good");
+		posRes.add("Dandy");
+		
+		String response = getResponse("How are you?: ", posRes, System.in);
+		
+		System.out.println(response);
 	}
 	
 	public static ByteArrayInputStream getStream(String input) {
