@@ -9,15 +9,17 @@ import java.util.Scanner;
 
 //import javax.print.DocFlavor.STRING;
 
-/**
- * Handles all interaction with User.
- */
 public class ui {
 
 	public static String saveFile = "save.txt";
 	public static Manager daBoss = Manager.makeManager(saveFile);
 	public static int timeview=0;
-
+/**
+ * input: none
+ * output: none
+ * modifies: console window, name slot, time slot
+ * takes User input and starts the program, also makes the User choose a name and a time veiwing format. 
+ */
 	/**
 	 * Initializes session information.
 	 */
@@ -237,6 +239,11 @@ public class ui {
 	}
 	
 	/**
+	 * input: list of events
+	 * output: none
+	 * modifies: terminal 
+	 */
+	/**
 	 * Print events to Screen.
 	 * 
 	 * @param events Those that are to be displayed.
@@ -255,11 +262,8 @@ public class ui {
 	}
 	
 	/**
-	 * Copies over contents of array to bigger entry.
-	 * 
-	 * @param a Original array
-	 * @param size Desired size of new array 
-	 * @return The resized array with copied contents.
+	 * input string array and int with size larger than the stringarray
+	 * output string array
 	 */
 	public static String[] arrayfix(String[] a,int size) {
 		String[] b=new String[size];

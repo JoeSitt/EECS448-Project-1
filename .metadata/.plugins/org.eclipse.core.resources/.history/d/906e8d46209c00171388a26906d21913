@@ -9,18 +9,17 @@ import java.util.Scanner;
 
 //import javax.print.DocFlavor.STRING;
 
-/**
- * Handles all interaction with User.
- */
 public class ui {
 
 	public static String saveFile = "save.txt";
 	public static Manager daBoss = Manager.makeManager(saveFile);
 	public static int timeview=0;
-
-	/**
-	 * Initializes session information.
-	 */
+/**
+ * input: none
+ * output: none
+ * modifies: console window, name slot, time slot
+ * takes User input and starts the program, also makes the User choose a name and a time veiwing format. 
+ */
 	public static void start(){
 	System.out.println("Welcome to the \"Best program(its a working title)\"");
 	System.out.println("please input your name");//Supports any name they want even no name
@@ -67,7 +66,10 @@ public class ui {
 }
 
 	/**
-	 * Clears the console.
+	 * input: none
+	 * output: none
+	 * modifies: console window
+	 * clears the console window by adding new lines 100 times. //have yet to find away of clearing the console anyother way...
 	 */
 	public static void clean() {
 		for(int i=0;i!=101;i++) {
@@ -77,11 +79,10 @@ public class ui {
 	}
 	
 	/**
-	 * Returns whether or not input is contained in the list.
+	 * input: a list of good inputs as strings and a string of the Users input
+	 * output: a bool of if the Users input matched any of the acceptable answers
+	 * modifies: none
 	 * 
-	 * @param goodinputs List of inputs that can be accepted
-	 * @param input Input under question
-	 * @return Whether or not input is contained in those that are to be accepted.
 	 */
 	public static boolean inputcheck(String[] goodinputs,String input) {
 		boolean recievedGin=false;
@@ -176,11 +177,10 @@ public class ui {
 	}
 	
 	/**
-	 * Allows user to change their name or time settings.
-	 * 
-	 * @param me Information about the person using the program.
-	 * @param Method of recieveing input
-	 * @return Modified user
+	 * input: takes in User info, and the scanner
+	 * output: none
+	 * modifies: console, and User class.
+	 * takes the User to the options menu and alows them to either change their name or the time settings
 	 */
 	public static User options(User me, Scanner myscan) {
 		String input="";
@@ -237,9 +237,9 @@ public class ui {
 	}
 	
 	/**
-	 * Print events to Screen.
-	 * 
-	 * @param events Those that are to be displayed.
+	 * input: list of events
+	 * output: none
+	 * modifies: terminal 
 	 */
 	public static void currentEvents(List<Event> events) {
 		if(events.size()==0) {
@@ -255,11 +255,8 @@ public class ui {
 	}
 	
 	/**
-	 * Copies over contents of array to bigger entry.
-	 * 
-	 * @param a Original array
-	 * @param size Desired size of new array 
-	 * @return The resized array with copied contents.
+	 * input string array and int with size larger than the stringarray
+	 * output string array
 	 */
 	public static String[] arrayfix(String[] a,int size) {
 		String[] b=new String[size];

@@ -9,9 +9,6 @@ import java.util.Scanner;
 
 //import javax.print.DocFlavor.STRING;
 
-/**
- * Handles all interaction with User.
- */
 public class ui {
 
 	public static String saveFile = "save.txt";
