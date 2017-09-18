@@ -1,0 +1,39 @@
+package scheduler;
+
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.Scanner;
+
+// TODO(cmaxcy):
+// - Ensure Manager has its state save-able and documentation matches use case
+
+public class Main {
+	public static void main(String[] args) {
+//		ui.start();
+//		System.out.println(readInput());
+		
+		System.out.println(read(System.in));
+		
+		String result = read(getStream("Hello\n"));
+		
+		System.out.println(result);
+	}
+	
+	public static String readInput() {
+		Scanner myScan = new Scanner(System.in);
+		return myScan.nextLine();
+	}
+	
+	public static String read(InputStream in) {
+		Scanner myScan = new Scanner(in);
+		
+		while (true) {
+			return myScan.nextLine();
+			
+		}
+	}
+	
+	public static ByteArrayInputStream getStream(String input) {
+		return new ByteArrayInputStream(input.getBytes());
+	}
+}

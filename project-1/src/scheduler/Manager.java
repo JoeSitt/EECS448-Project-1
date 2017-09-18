@@ -14,9 +14,6 @@ import java.util.TreeSet;
 
 /**
  * Used to store a set of events. Instances can be read and written to file.
- * 
- * References:
- * https://stackoverflow.com/questions/447898/what-is-object-serialization
  */
 public class Manager implements Serializable {
 	
@@ -26,7 +23,13 @@ public class Manager implements Serializable {
 	// Required for serialization
 	private static final long serialVersionUID = 1L;
 	
+	public static boolean deleteFile(String fileName) {
+		return new File(fileName).delete();
+	}
+	
 	/**
+	 * Retrieve stored events.
+	 * 
 	 * @return List of events.
 	 */
 	public List<Event> getEvents() {
@@ -81,12 +84,10 @@ public class Manager implements Serializable {
 	};
 	
 	/**
-	 * Returns whether or not a file exists
-	 * 
 	 * https://stackoverflow.com/questions/1816673/how-do-i-check-if-a-file-exists-in-java
 	 * 
 	 * @param fileName
-	 * @return
+	 * @return Whether or not a file exists.
 	 */
 	public static boolean doesFileExist(String fileName) {
 		File f = new File(fileName);
@@ -110,41 +111,49 @@ public class Manager implements Serializable {
 		return true;
 	}
 	
+
 	/**
-	 * Write current state of instance to file.
+	 * Write class instance contents to file.
 	 * 
-	 * @throws IOException If an error is encountered during the writing.
+	 * @return True only if file was written correctly
 	 */
-	public void write() throws IOException {
-		
-		FileOutputStream f = new FileOutputStream(new File(fileName));
-		ObjectOutputStream o = new ObjectOutputStream(f);
-		
-		o.writeObject(this);
-		
-		// close file writing objects
-		o.close();
-		f.close();
+	public boolean write() {
+		try {
+			FileOutputStream f = new FileOutputStream(new File(fileName));
+			ObjectOutputStream o = new ObjectOutputStream(f);
+			
+			o.writeObject(this);
+			
+			// close file writing objects
+			o.close();
+			f.close();
+		} catch(IOException e) {
+			return false;
+		}
+		return true;
 	}
 	
 	/**
-	 * Read a Stored Manager from file
+	 * Factory Constructor reads Manager from file.
 	 * 
-	 * @param fileName Name of the file to read Manager from
-	 * @return Constructed manager.
-	 * @throws IOException If Error is File reading
-	 * @throws ClassNotFoundException If error is encountered converting 
-	 * 		   file contents to Manager instance
+	 * @param fileName File in which Manager is to be read from.
+	 * @return Constructed Manager only if file was read correctly. Else null.
 	 */
-	public static Manager read(String fileName) throws IOException, ClassNotFoundException {
-		FileInputStream fi = new FileInputStream(new File(fileName));
-		ObjectInputStream oi = new ObjectInputStream(fi);
+	public static Manager read(String fileName) {
+		Manager pr1;
+		
+		try {
+			FileInputStream fi = new FileInputStream(new File(fileName));
+			ObjectInputStream oi = new ObjectInputStream(fi);
 
-		Manager pr1 = (Manager) oi.readObject();
+			pr1 = (Manager) oi.readObject();
 
-		// close file reading objects
-		oi.close();
-		fi.close();
+			// close file reading objects
+			oi.close();
+			fi.close();
+		} catch(Exception e) {
+			return null;
+		}
 		
 		return pr1;
 	}

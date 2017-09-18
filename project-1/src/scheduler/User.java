@@ -70,7 +70,7 @@ public class User implements Comparable<User>, Serializable {
 	
 	/**
 	 * @param otherUser The user to be compared to
-	 * @returns Lexicographic comparison of users' names
+	 * @return Lexicographic comparison of users' names
 	 */
 	public int compareTo(User otherUser) {
 		return this.name.compareTo(otherUser.name);

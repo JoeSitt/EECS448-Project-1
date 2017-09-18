@@ -136,7 +136,7 @@ public class Event implements Serializable, Comparable<Event> {
 	
 	/**
 	 * @param otherEvent The event to be compared to
-	 * @returns Lexicographic comparison of event' names
+	 * @return Lexicographic comparison of event' names
 	 */
 	public int compareTo(Event otherEvent) {
 		return this.name.compareTo(otherEvent.name);

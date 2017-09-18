@@ -1,0 +1,52 @@
+package scheduler;
+
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+// TODO(cmaxcy):
+// - Ensure Manager has its state save-able and documentation matches use case
+
+public class Main {
+	public static void main(String[] args) {
+//		ui.start();
+//		System.out.println(readInput());
+		
+		List<String> pos = new ArrayList<String>();
+		pos.add("Hi");
+		pos.add("Sup");
+		
+		System.out.println(getResponse("Enter something:", pos, System.in));
+	}
+	
+	public static String readInput() {
+		Scanner myScan = new Scanner(System.in);
+		return myScan.nextLine();
+	}
+	
+	public static String read(InputStream in) {
+		Scanner myScan = new Scanner(in);
+		return myScan.nextLine();
+	}
+	
+	public static ByteArrayInputStream getStream(String input) {
+		return new ByteArrayInputStream(input.getBytes());
+	}
+	
+	public static String getResponse(String question, List<String> possibleResponses, InputStream in) {
+		Scanner scan = new Scanner(in);
+		String response = "";
+		
+		while (true) {
+			System.out.println(question);
+			response = scan.nextLine();
+			for (String possibleResponse : possibleResponses) {
+				if (response.equals(possibleResponse)) {
+					return response;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,17 @@
+package scheduler;
+
+import java.util.Scanner;
+
+// TODO(cmaxcy):
+// - Ensure Manager has its state save-able and documentation matches use case
+
+public class Main {
+	public static void main(String[] args) {
+		ui.start();
+	}
+	
+	public String readInput() {
+		Scanner myScan = new Scanner(System.in);
+		myScan.nextLine();
+	}
+}

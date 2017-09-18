@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ManagerTest" project="project-1" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="scheduler.ManagerTest" time="0.03">
+    <testcase name="testDeleteEvent" classname="scheduler.ManagerTest" time="0.003"/>
+    <testcase name="testDoesFileExist" classname="scheduler.ManagerTest" time="0.0"/>
+    <testcase name="testAddEvent" classname="scheduler.ManagerTest" time="0.0"/>
+    <testcase name="testManagerFileWriting" classname="scheduler.ManagerTest" time="0.027"/>
+  </testsuite>
+</testrun>

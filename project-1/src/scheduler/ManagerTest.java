@@ -2,7 +2,6 @@ package scheduler;
 
 import static org.junit.Assert.*;
 
-import java.io.IOException;
 import java.util.Date;
 
 import org.junit.Test;
@@ -55,23 +54,31 @@ public class ManagerTest {
 		assertEquals(m.getEvents().size(), 1);
 	}
 	
-//	@Test
-//	public void testManagerFileWriting() throws IOException {
-//		String realFileName = "new.txt";
-//		Manager testManager = Manager.makeManager(realFileName);
-//		
-//		Event testEvent = Event.makeEvent(Event.parseDateString("01/02/2017"), "Myvent");
-//		User testUser = new User("Larry");
-//		Time t1 = Time.makeTime(0, true);
-//		
-//		testUser.addTime(t1);
-//		testEvent.addUser(testUser);
-//		System.out.println(testManager.addEvent(testEvent));
-//		
-//		testManager.write();
-//		
-//		Manager newManager = Manager.makeManager(realFileName);
-//		assertEquals(newManager.getEvents().get(0).getUsers().get(0).getSlotTimeStrings(true).get(0), "00:00");
-//	}
-
+	/**
+	 * Test that manager can be read and written to file correctly.
+	 */
+	@Test
+	public void testManagerFileIO() {
+		String realFileName = "testing-Manager-file.txt";
+		
+		Manager testManager = Manager.makeManager(realFileName);
+		
+		Event testEvent = Event.makeEvent(Event.parseDateString("01/02/2017"), "");
+		User testUser = new User("");
+		Time t1 = Time.makeTime(0, true);
+		testUser.addTime(t1);
+		testEvent.addUser(testUser);
+		testManager.addEvent(testEvent);
+		
+		// Test that file write was successful and that file now exists
+		assertTrue(testManager.write());
+		assertTrue(Manager.doesFileExist(realFileName));
+		
+		// Tests Manager instance can be recovered after being saved.
+		Manager readManager = Manager.read(realFileName);
+		assertNotNull(readManager);
+		assertEquals(readManager.getEvents().get(0).getDateString(), "01/02/2017");
+		
+		Manager.deleteFile(realFileName);
+	}
 }
