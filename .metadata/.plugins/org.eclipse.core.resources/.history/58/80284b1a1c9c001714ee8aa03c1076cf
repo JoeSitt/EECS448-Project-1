@@ -14,7 +14,7 @@ public class ui {
 	public static String saveFile = "save.txt";
 	public static Manager daBoss = Manager.makeManager(saveFile);
 	public static int timeview=0;
-/**
+/*
  * input: none
  * output: none
  * modifies: console window, name slot, time slot
@@ -65,7 +65,7 @@ public class ui {
 	myscan.close();
 }
 
-	/**
+	/*
 	 * input: none
 	 * output: none
 	 * modifies: console window
@@ -78,7 +78,7 @@ public class ui {
 
 	}
 	
-	/**
+	/*
 	 * input: a list of good inputs as strings and a string of the Users input
 	 * output: a bool of if the Users input matched any of the acceptable answers
 	 * modifies: none
@@ -94,7 +94,7 @@ public class ui {
 		return recievedGin;
 	}
 	
-	/**
+	/*
 	 * input:User info
 	 * output:none
 	 * modifies: screen
@@ -176,7 +176,7 @@ public class ui {
 		myscan.close();
 	}
 	
-	/**
+	/*
 	 * input: takes in User info, and the scanner
 	 * output: none
 	 * modifies: console, and User class.
@@ -254,7 +254,7 @@ public class ui {
 		}
 	}
 	
-	/**
+	/*
 	 * input string array and int with size larger than the stringarray
 	 * output string array
 	 */
@@ -266,7 +266,7 @@ public class ui {
 		return b;
 	}
 	
-	/**
+	/*
 	 * input: me, myscan
 	 * output: none or new event
 	 * modifies:event string or none,terminal

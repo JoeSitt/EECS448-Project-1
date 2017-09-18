@@ -186,7 +186,7 @@ public class ui {
 		String input="";
 		int i=0;//0 for good input//1 for bad input
 		//String[] ginputs= {"Esc","esc","ESC","Name","name","NAME","Time","time","TIME"};//left it here just to let us know what the current options are.
-		while(/*!inputcheck(ginputs,input)&&*/!(input.equals("Esc")||input.equals("esc")||input.equals("ESC"))) {
+		while(/**!inputcheck(ginputs,input)&&*/!(input.equals("Esc")||input.equals("esc")||input.equals("ESC"))) {
 		clean();
 		if(i==1) {
 			System.out.println("that input wasnt recognised");
@@ -236,7 +236,7 @@ public class ui {
 		//myscan.close();
 	}
 	
-	/**
+	/***
 	 * input: list of events
 	 * output: none
 	 * modifies: terminal 
@@ -288,7 +288,7 @@ public class ui {
 		String[] gHRinputs= {"Esc","esc","ESC"};
 		String[] g12inputs= {"Esc","esc","ESC","AM","am","Am","A.M.","a.m.","A.m.","PM","pm","Pm","P.M.","p.m.","P.m."};
 		String[] gmininputs= {"Esc","esc","ESC","","0","00","30"};
-		/*if (me.timeview==12) {
+		/**if (me.timeview==12) {
 
 			for(int i=0;i<12;i++) {
 				int x=i+1;
@@ -333,7 +333,7 @@ public class ui {
 		Event myEvent = Event.makeEvent(Date, name);
 		
 		//String time;//could also be a list of strings or list of ints
-		/*boolean bsize=false;//bad size
+		/**boolean bsize=false;//bad size
 		boolean b5=false;//
 		boolean b0=false;//bad first character
 		boolean b3=*/
