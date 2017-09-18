@@ -278,12 +278,14 @@ public class ui {
 	}
 	
 	/**
+	 * NOTE: When in 12 hour mode, entered strings of 4 or fewer characters will cause an array out of bounds exception.
 	 * 
 	 * @param me the user in question
 	 * @param myEvent the event being viewed
 	 * @param myscan a scanner for user inputs
 	 * @return
 	 */
+	// TODO: Fix array out of bounds exception on 12 hour mode input
 	public static Event eventViewer(User me, Event myEvent, Scanner myscan) {
 		String input="";
 		while(!input.equals("Esc")&&!input.equals("esc")&&!input.equals("ESC")&&!input.equals("Y")&&!input.equals("y")&&!input.equals("N")&&!input.equals("n")) {
@@ -383,11 +385,14 @@ public class ui {
 		System.out.println(outStr);
 	}
 	/**
+	 * NOTE: When in 12 hour mode, entered strings of 4 or fewer characters will cause an array out of bounds exception.
+	 * 
 	 * input: me, myscan
 	 * output: none or new event
 	 * modifies:event string or none,terminal
 	 * lets the User create events not finished
 	 */
+	// TODO: Fix array out of bounds exception on 12 hour mode input
 	public static void admin(User me,Scanner myscan) {
 		String menuoptions="============================================================================================\r\n" + 
 				"Input a code of what you want to do or follow the prompt to make an event\r\n" + 
