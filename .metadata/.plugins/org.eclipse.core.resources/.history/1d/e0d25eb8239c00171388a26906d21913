@@ -270,12 +270,13 @@ public class ui {
 	}
 	
 	/**
-	 * Prints description of user. Includes the user's name which time blocks they occupy.
+	 * Retrieves description of user. Includes the user's name what time blocks they occupy.
 	 * 
 	 * @param user The user in question.
 	 * @param useMil Whether or not to format using military time.
+	 * @return Name + each time + newLine
 	 */
-	public static void getUserSummary(User user, boolean useMil) {
+	public static void getUserSummar(User user, boolean useMil) {
 		
 		String outStr = user.getName();
 		outStr += ": ";
@@ -290,6 +291,7 @@ public class ui {
 		}
 		
 		System.out.println(outStr);
+	
 	}
 	
 	/**

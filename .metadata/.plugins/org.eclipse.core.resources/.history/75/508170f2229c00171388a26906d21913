@@ -270,26 +270,26 @@ public class ui {
 	}
 	
 	/**
-	 * Prints description of user. Includes the user's name which time blocks they occupy.
-	 * 
-	 * @param user The user in question.
-	 * @param useMil Whether or not to format using military time.
+	 * Retrieves descrition of user. Includes the user's name what time blocks they occupy.
+	 * @param user
+	 * @param useMil
+	 * @return
 	 */
-	public static void getUserSummary(User user, boolean useMil) {
+	public static String getUserSummar(User user, boolean useMil) {
 		
 		String outStr = user.getName();
-		outStr += ": ";
 		
 		List<String> timeSlots = user.getSlotTimeStrings(useMil);
 		
-		for (int i = 0; i < timeSlots.size(); i++) {
-			outStr += timeSlots.get(i);
-			if (i != timeSlots.size() - 1) {
-				outStr += ", ";
-			}
+		for (String time : timeSlots) {
+			outStr += time;
+			outStr += " ";
 		}
 		
-		System.out.println(outStr);
+		outStr += "\n";
+		
+		return outStr;
+	
 	}
 	
 	/**
