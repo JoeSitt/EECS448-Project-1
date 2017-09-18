@@ -370,12 +370,7 @@ public class ui {
 				if(!(input.equals("ESC")||input.equals("esc")||input.equals("Esc")||input.equals("Done")||input.equals("done")||input.equals("DONE"))) {
 				if(input.length()<5) {
 				char[] inputchar=input.toCharArray();
-				if(inputchar[2]!=':') {
-					inputchar[2]=':';
-				}
-				if(inputchar[4]!='0') {
-					inputchar[4]='0';
-				}
+				
 				}
 				if(Time.isTimeStringValid(input,true)) {
 					me.addTime(Time.parseTime(input,true));
