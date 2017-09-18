@@ -1,22 +1,18 @@
 package scheduler;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
 public class Main {
 	public static void main(String[] args) {
-//		ui.start();
-		
-		List<String> posRes = new ArrayList<String>();
-		posRes.add("Good");
-		posRes.add("Dandy");
-		
-		String response = getResponse("How are you?: ", posRes, System.in);
-		
-		System.out.println(response);
+		ui.start();
+	}
+	
+	public static String readInput() {
+		Scanner myScan = new Scanner(System.in);
+		return myScan.nextLine();
+	}
+	
+	public static String read(InputStream in) {
+		Scanner myScan = new Scanner(in);
+		return myScan.nextLine();
 	}
 	
 	public static ByteArrayInputStream getStream(String input) {

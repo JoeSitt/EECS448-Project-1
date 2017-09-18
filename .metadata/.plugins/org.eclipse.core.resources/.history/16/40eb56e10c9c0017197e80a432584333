@@ -1,0 +1,17 @@
+package scheduler;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class MainTest {
+
+	@Test
+	public void testGetResponse() {
+		
+		List<String> posRes = new ArrayList<String>();
+		
+		Main.getResponse("How's it going?: ", possibleResponses, in)
+	}
+
+}

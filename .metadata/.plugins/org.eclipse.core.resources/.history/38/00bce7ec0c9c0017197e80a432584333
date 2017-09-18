@@ -2,7 +2,6 @@ package scheduler;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
@@ -16,14 +15,7 @@ public class MainTest {
 		posRes.add("Good");
 		posRes.add("Swell");
 		
-		String responseString = "Bad\n" + 
-								"Alright\n" +
-								"Great!\n" + 
-								"Good\n";
-		
-		String result = Main.getResponse("How's it going?: ", posRes, Main.getStream(responseString));
-		
-		assertEquals(result, "Good");
+		Main.getResponse("How's it going?: ", posRes, System.in);
 	}
 
 }

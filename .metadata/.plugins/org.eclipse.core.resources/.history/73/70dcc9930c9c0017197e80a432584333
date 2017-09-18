@@ -2,7 +2,6 @@ package scheduler;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,9 +13,7 @@ public class Main {
 		posRes.add("Good");
 		posRes.add("Dandy");
 		
-		String response = getResponse("How are you?: ", posRes, System.in);
-		
-		System.out.println(response);
+		String response = getResponse("How are you?: ", )
 	}
 	
 	public static ByteArrayInputStream getStream(String input) {
