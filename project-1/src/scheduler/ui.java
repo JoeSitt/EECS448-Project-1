@@ -139,10 +139,10 @@ public class ui {
 			  	i++;
 			  }
 		  i=0;
-		  while(i<ginpute.length) {
+		 /* while(i<ginpute.length) {
 			  System.out.println(ginpute[i]);
 			  i++;
-		  }
+		  }*/ //used for debug
 		//System.out.println("backhere");
 		input=myscan.nextLine();
 		
@@ -260,7 +260,7 @@ public class ui {
 			System.out.println("index:");
 			for(int i=0;i<events.size();i++) {
 				temp=events.get(i);
-				System.out.println(i+"    "+temp.getName()+" on "+temp.getDateString());
+				System.out.println(i+"       "+temp.getName()+" on "+temp.getDateString());
 			}
 		}
 	}
