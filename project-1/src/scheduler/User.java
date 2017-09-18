@@ -11,7 +11,7 @@ import java.util.TreeSet;
  * Includes their name and which half-hour time slots in the day are to be associated with them.
  */
 public class User implements Comparable<User>, Serializable {
-	
+	public int timeview=0;
 	private String name;
 	private TreeSet<Time> timeSlots;
 	
@@ -33,6 +33,15 @@ public class User implements Comparable<User>, Serializable {
 	 */
 	public String getName() {
 		return this.name;
+	}
+	/*
+	 * input string for a name
+	 * output: none
+	 * modifies name of user;
+	 * is used to change name of user
+	 */
+	public void setname(String Name) {
+		name=Name;
 	}
 	
 	/**

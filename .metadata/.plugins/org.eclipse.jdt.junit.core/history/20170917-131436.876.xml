@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="TimeTest" project="project-1" tests="4" started="4" failures="0" errors="0" ignored="0">
-  <testsuite name="scheduler.TimeTest" time="0.018">
-    <testcase name="testGetTimeString" classname="scheduler.TimeTest" time="0.015"/>
-    <testcase name="testIsTimeStringValid" classname="scheduler.TimeTest" time="0.002"/>
-    <testcase name="testParseTime" classname="scheduler.TimeTest" time="0.0"/>
-    <testcase name="testMakeTime" classname="scheduler.TimeTest" time="0.001"/>
-  </testsuite>
-</testrun>

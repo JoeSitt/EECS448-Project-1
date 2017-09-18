@@ -1,4 +1,7 @@
 package scheduler;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 //import java.util.Arrays;
 //import java.util.List;
@@ -8,26 +11,27 @@ import java.util.Scanner;
 
 public class ui {
 
+	public static Manager daBoss= new Manager();
+	public static int timeview=0;
 /*
  * input: none
  * output: none
  * modifies: console window, name slot, time slot
- * takes user input and starts the program, also makes the user choose a name and a time veiwing format. 
+ * takes User input and starts the program, also makes the User choose a name and a time veiwing format. 
  */
 	public static void start(){
 	System.out.println("Welcome to the \"Best program(its a working title)\"");
 	System.out.println("please input your name");//Supports any name they want even no name
 	Scanner myscan= new Scanner(System.in);
-	//String username="";//should replace with actual user name from somewhere else...;//just did.-JS
-	user me=new user();
-	me.uname=myscan.nextLine();
-	System.out.println("your name is "+me.uname);
+	String name=myscan.nextLine();
+	System.out.println("your name is "+name);
 	System.out.println("Would you rather have a time be displayed in a 24hr format or a 12hr format");
 	System.out.println("type \"12\" for 12hr format and \"24\" for 24hr format ");
 	//boolean badinput=true;
 	String input;
 	String twelve= new String("12");
 	//String twenty4= new String("24");
+	User me=new User(name);
 	input=myscan.nextLine();
 	String[] goodAnswer= {"12","24"};
 	while(!inputcheck(goodAnswer,input)) {
@@ -39,24 +43,24 @@ public class ui {
 			System.out.println("input recieved.");
 		}
 			else if(input.equals(twelve)){
-				me.timeview=12;
+				timeview=12;
 //			//badinput=false;
 		}else {
-			me.timeview=24;
+			timeview=24;
 //			//badinput=false;
 		}
 	}
 	if(input.equals(twelve)){
-		me.timeview=12;
+		timeview=12;
 		//badinput=false;
 	}else {
-		me.timeview=24;
+		timeview=24;
 		//badinput=false;
 	}
 
 	clean();
-	System.out.println(me.timeview);
-	user(me);
+	System.out.println(timeview);
+	User(me);
 	myscan.close();
 }
 
@@ -74,8 +78,8 @@ public class ui {
 	}
 	
 	/*
-	 * input: a list of good inputs as strings and a string of the users input
-	 * output: a bool of if the users input matched any of the acceptable answers
+	 * input: a list of good inputs as strings and a string of the Users input
+	 * output: a bool of if the Users input matched any of the acceptable answers
 	 * modifies: none
 	 * 
 	 */
@@ -90,15 +94,17 @@ public class ui {
 	}
 	
 	/*
-	 * input:user info
+	 * input:User info
 	 * output:none
 	 * modifies: screen
-	 * shows menu and acts off of user input to goto view event screens. currently not finished.
+	 * shows menu and acts off of User input to goto view event screens. currently not finished.
 	 */
-	public static void user(user me) {
+	public static void User(User me) {
 		Scanner myscan= new Scanner(System.in);
-		String[] ginputs= {"Esc","esc","ESC","Create","create","CREATE",""+1};
-		String[] sginputs=ginputs;
+		String[] ginput={"Esc","esc","ESC","Create","create","CREATE",};
+		ArrayList<String> ginputs=new ArrayList<String>();
+		//ginputs.add(0,test[0]);
+		ArrayList<String> sginputs=ginputs;
 		int leave=0;
 		String input;
 		while(leave==0) {//currently set up to infinite loop
@@ -106,21 +112,39 @@ public class ui {
 		myscan= new Scanner(System.in);
 		System.out.println("============================================================================================\r\n" + 
 				"Input the index number of the event you want to view or input a code of what you want to do\r\n" + 
-				"Return to options (code: �esc�)\r\n" + 
-				"Create an event (code: �create�)\r\n" + 
+				"Return to options (code: \"esc\")\r\n" + 
+				"Create an event (code: \"create\")\r\n" + 
 				"============================================================================================\r\n" + 
 				"");
-		System.out.println("here should be where all of the events are shown. but that hasent been set up yet.");
+		//System.out.println("here should be where all of the events are shown. but that hasent been set up yet.");
+		currentEvents(daBoss.getEvents());
+		//System.out.println("currentevents complete");
 		ginputs= sginputs;
-		/*
-		 *  //idea for code
-		 * int i=0;
-		 * while(i<events.length){//events would be an array of events
-		 * 	ginputs[i+5]=""+i;
-		 * }
-		 */
+		
+		   //idea for code
+		  int i=0;
+		  //System.out.println(daBoss.getEvents().size()+"is the size");
+
+			//String[] ginput= ginputs.toArray(test);
+		  //System.out.println("updated ginputs");
+		  i=0;
+		  String[] ginpute=new String[daBoss.getEvents().size()+ginput.length];
+		  ginpute=arrayfix(ginput,daBoss.getEvents().size()+ginput.length);
+		  while(i<(daBoss.getEvents()).size()){//events would be an array of events
+			  	ginpute[i+6]=(i+"");
+			  	//System.out.println("frog");
+			  	//System.out.println(ginputs[i+6]);
+			  	i++;
+			  }
+		  i=0;
+		  while(i<ginpute.length) {
+			  System.out.println(ginpute[i]);
+			  i++;
+		  }
+		//System.out.println("backhere");
 		input=myscan.nextLine();
-		while(!inputcheck(ginputs,input)) {
+		
+		while(!inputcheck(ginpute,input)) {
 			System.out.println("Im sorry that input wasnt understood. Please try again.");
 			input=myscan.nextLine();
 		}
@@ -131,25 +155,33 @@ public class ui {
 		}
 		else if(input.equals("Create")||input.equals("CREATE")||input.equals("create")) {
 			//goes to the admin mode of creating an event
-			System.out.println("this mode currently isnt active. press enter to continue");
-			myscan.nextLine();//just a buffer will not be in final
+			clean();
+			admin(me,myscan);
+			//System.out.println("here");
+			input="";
+			//System.out.println("this mode currently isnt active. press enter to continue");
+			//myscan.nextLine();//just a buffer will not be in final
 		}else {
+			//System.out.println("made it here");
 			int eventnum=Integer.parseInt(input);
 			System.out.println("you have selected event #"+eventnum);
+			System.out.println("this mode currently isnt active. press enter to continue");
+			myscan.nextLine();//just a buffer will not be in final
 			//goes to event viewer.
 		}
-		//user(me);
+		//User(me);
 		}
+		System.out.println("scan closed");
 		myscan.close();
 	}
 	
 	/*
-	 * input: takes in user info, and the scanner
+	 * input: takes in User info, and the scanner
 	 * output: none
-	 * modifies: console, and user class.
-	 * takes the user to the options menu and alows them to either change their name or the time settings
+	 * modifies: console, and User class.
+	 * takes the User to the options menu and alows them to either change their name or the time settings
 	 */
-	public static user options(user me, Scanner myscan) {
+	public static User options(User me, Scanner myscan) {
 		String input="";
 		int i=0;//0 for good input//1 for bad input
 		//String[] ginputs= {"Esc","esc","ESC","Name","name","NAME","Time","time","TIME"};//left it here just to let us know what the current options are.
@@ -160,16 +192,18 @@ public class ui {
 		}
 		String menuoptions="============================================================================================\r\n" + 
 				"Input a code of what you want to do\r\n" + 
-				"Return to where you were (code: �esc�)\r\n" + 
-				"Change your name (code: �name�) Your current name is:"+me.uname+"\r\n" + 
-				"Change the time settings (code: time) Your current time setting is:"+me.timeview+"hr \r\n"+
+				"Return to where you were (code: \"esc\")\r\n" + 
+				"Change your name (code: \"name\") Your current name is:"+me.getName()+"\r\n" + 
+				"Change the time settings (code: \"time\") Your current time setting is:"+timeview+"hr \r\n"+
 				"============================================================================================\r\n" + 
 				"";
 		System.out.println(menuoptions);
 		input=myscan.nextLine();
 		if(input.equals("Name")||input.equals("NAME")||input.equals("name")) {
 			System.out.println("what would you like your new name to be?");
-			me.uname=myscan.nextLine();
+			String name;
+			name=myscan.nextLine();
+			me.setname(name);
 			i=0;
 		}else if(input.equals("Time")||input.equals("TIME")||input.equals("time")) {
 			i=0;
@@ -185,15 +219,15 @@ public class ui {
 					System.out.println("Would you rather have a time be displayed in a 24hr format or a 12hr format");
 					System.out.println("type \"12\" for 12hr format and \"24\" for 24hr format ");
 				}else if(input.equals("12")){
-					me.timeview=12;
+					timeview=12;
 					//badinput=false;
 				}else {
-					me.timeview=24;
+					timeview=24;
 					//badinput=false;
 				}
 			}
 		}else {
-			i=1;//will be changed if user leaves but will not make a difference at that point
+			i=1;//will be changed if User leaves but will not make a difference at that point
 		}
 	}
 		
@@ -201,23 +235,59 @@ public class ui {
 		//myscan.close();
 	}
 	
+	/**
+	 * input: list of events
+	 * output: none
+	 * modifies: terminal 
+	 */
+	public static void currentEvents(List<Event> events) {
+		if(events.size()==0) {
+			System.out.println("No events to display");
+		}else {
+			Event temp;
+			System.out.println("index:");
+			for(int i=0;i<events.size();i++) {
+				temp=events.get(i);
+				System.out.println(i+"    "+temp.getName()+" on "+temp.getDateString());
+			}
+		}
+	}
+	
+	/*
+	 * input string array and int with size larger than the stringarray
+	 * output string array
+	 */
+	public static String[] arrayfix(String[] a,int size) {
+		String[] b=new String[size];
+		for(int i=0;i<a.length;i++) {
+			b[i]=a[i];
+		}
+		return b;
+	}
+	
 	/*
 	 * input: me, myscan
 	 * output: none or new event
 	 * modifies:event string or none,terminal
-	 * lets the user create events not finished
+	 * lets the User create events not finished
 	 */
-	public static void admin(user me,Scanner myscan) {
+	public static void admin(User me,Scanner myscan) {
 		String menuoptions="============================================================================================\r\n" + 
 				"Input a code of what you want to do or follow the prompt to make an event\r\n" + 
-				"Return to where you were and cancel this event (code: �esc�)\r\n" + 
+				"Return to where you were and cancel this event (code: \"esc\")\r\n" + 
+				"============================================================================================\r\n" + 
+				"";
+		String menuoptionstime="============================================================================================\r\n" + 
+				"Input a code of what you want to do or follow the prompt to make an event\r\n" + 
+				"Return to where you were and cancel this event (code: \"esc\")\r\n" + 
+				"If you are finished entering times (code: \"Done\")\r\n" +
 				"============================================================================================\r\n" + 
 				"";
 		System.out.println(menuoptions);
 		String[] gHRinputs= {"Esc","esc","ESC"};
 		String[] g12inputs= {"Esc","esc","ESC","AM","am","Am","A.M.","a.m.","A.m.","PM","pm","Pm","P.M.","p.m.","P.m."};
 		String[] gmininputs= {"Esc","esc","ESC","","0","00","30"};
-		if (me.timeview==12) {
+		/*if (me.timeview==12) {
 
 			for(int i=0;i<12;i++) {
 				int x=i+1;
@@ -229,7 +299,7 @@ public class ui {
 				gHRinputs[i+3]=""+i;
 			}
 		}
-
+*/
 		String input="";
 		System.out.println("Please input a name for your Event(Cannot be esc, ESC, or Esc)");
 		input=myscan.nextLine();
@@ -243,16 +313,89 @@ public class ui {
 		if(input.equals("ESC")||input.equals("esc")||input.equals("Esc")) {
 			return;
 		}
-		//TODO-check date here and loop if incorrect info or format(while letting the user know why they are a fool);
+		//TODO-check date here and loop if incorrect info or format(while letting the User know why they are a fool);
+		while(!(Event.isDateStringValid(input)||input.equals("ESC")||input.equals("esc")||input.equals("Esc"))) {
+			System.out.println("please input the date you would liked to schedual your event on.(MM/dd/yyyy)");
+			input=myscan.nextLine();
+		}
+		if(input.equals("ESC")||input.equals("esc")||input.equals("Esc")) {
+			return;
+		}
 		date=input;
-		System.out.println("please input the time you want to have the event");
-		String time;//could also be a list of strings or list of ints
-		input=myscan.nextLine();
+		Date Date= Event.parseDateString(date);
+		
 		//TODO-this should allow for multiple inputs either separated by a comma or allow for time spans, eg. 11:00-15:00, 16:00-20:30
 		//should also loop until correct input is received.
-		time=input;
+		
 		//where i stopped-js
-//		Event myEvent=new Event(time,date,name);
+		Event myEvent=new Event(Date,name);
+		
+		//String time;//could also be a list of strings or list of ints
+		/*boolean bsize=false;//bad size
+		boolean b5=false;//
+		boolean b0=false;//bad first character
+		boolean b3=*/
+		User temp=me;
+		while(!(input.equals("ESC")||input.equals("esc")||input.equals("Esc")||input.equals("Done")||input.equals("done")||input.equals("DONE"))) {
+			ui.clean();
+			System.out.println(menuoptionstime);
+			if(timeview==12) {
+				System.out.println("please input the time you want to have the event in format \"HH:MMaa\" with H=hour, M=min(can only be 00 or 30), and aa= Am or Pm");
+				input=myscan.nextLine();
+				if(input.equals("ESC")||input.equals("esc")||input.equals("Esc")||input.equals("Done")||input.equals("done")||input.equals("DONE"))
+				{
+					
+				}else {
+				if(input.length()<5) {
+				char[] inputchar=input.toCharArray();
+				if(inputchar[2]!=':') {
+					inputchar[2]=':';
+				}
+				if(inputchar[4]!='0') {
+					inputchar[4]='0';
+				}
+				//if()
+				}
+				if(Time.isTimeStringValid(input,false)) {
+					me.addTime(Time.parseTime(input,false));
+				}else {
+					//if() {
+					System.out.println("input not understood");	
+					//}
+				}
+				}
+			}else {
+				System.out.println("please input the time you want to have the event in format \"HH:MM\" with H=hour and M=min(can only be 00 or 30)");
+				input=myscan.nextLine();
+				if(!(input.equals("ESC")||input.equals("esc")||input.equals("Esc")||input.equals("Done")||input.equals("done")||input.equals("DONE"))) {
+				if(input.length()<5) {
+				char[] inputchar=input.toCharArray();
+				if(inputchar[2]!=':') {
+					inputchar[2]=':';
+				}
+				if(inputchar[4]!='0') {
+					inputchar[4]='0';
+				}
+				}
+				if(Time.isTimeStringValid(input,true)) {
+					me.addTime(Time.parseTime(input,true));
+					System.out.println("Time added");
+				}else {
+					//if() {
+					System.out.println("input not understood");	
+					//}
+				}
+				}
+			}
+		}
+		if(input.equals("ESC")||input.equals("esc")||input.equals("Esc")) {
+			me=temp;
+			return;
+		}
+		//time=input;
+		myEvent.addUser(me);
+		daBoss.addEvent(myEvent);
+		me=temp;
 	}
 
 }

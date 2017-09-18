@@ -21,6 +21,7 @@ public class Event implements Serializable, Comparable<Event> {
 	private String name;
 	private TreeSet<User> users;
 	
+
 	public static String dateFormat = "MM/dd/yyyy";
 	
 	// Required for serialization
